@@ -13,8 +13,8 @@ body {
 
 .menu {
     width: 25%;
-    background-color: rgb(230, 15, 97);
-    color: rgb(230, 15, 97);
+    background-color: rgb(226, 153, 91);
+    color: rgb(226, 153, 91);
     padding: 20px;
     min-height: 400px;
 }
@@ -24,13 +24,13 @@ body {
     color: white;
     text-decoration: none;
     margin: 15px 0;
-    background-color: rgb(230, 15, 97);
+    background-color: rgb(226, 153, 91);
     padding: 10px;
     border-radius: 5px;
 }
 
 .menu a:hover {
-    background-color: rgb(230, 15, 97);
+    background-color: rgb(226, 153, 91);
 }
 
 .conteudo {
@@ -40,13 +40,13 @@ body {
 }
 
 .conteudo img {
-    width: 400px;
-    max-width: 200%;
+    width: 800px;
+    max-width: 400%;
     border-radius: 10px;
 }
 
 .rodape {
-    background-color: rgb(230, 15, 97);
+    background-color: rgb(166, 161, 158);
     color: white;
     text-align: center;
     padding: 15px;
