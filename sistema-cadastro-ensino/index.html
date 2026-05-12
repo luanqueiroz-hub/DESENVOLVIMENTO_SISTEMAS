@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistema de Cadastro Escolar</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header class="topo">
+        <h1>Sistema de Cadastro Escolar</h1>
+        <p>Trabalho 1 - 2º Trimestre</p>
+    </header>
+
+    <main class="container">
+        <section class="card destaque">
+            <h2>Tela Principal</h2>
+            <p>Escolha um formulário abaixo para cadastrar cursos, professores ou alunos da instituição de ensino.</p>
+            <div class="menu">
+                <a href="#curso">Cadastro de Cursos</a>
+                <a href="#professor">Cadastro de Professores</a>
+                <a href="#aluno">Cadastro de Alunos</a>
+            </div>
+        </section>
+
+        <section class="card" id="curso">
+            <h2>Cadastro de Cursos</h2>
+            <form id="formCurso">
+                <label for="nomeCurso">Nome do curso</label>
+                <input type="text" id="nomeCurso" placeholder="Ex: Desenvolvimento de Sistemas">
+
+                <label for="codigoCurso">Código do curso</label>
+                <input type="text" id="codigoCurso" placeholder="Ex: DS2026">
+
+                <label for="periodoCurso">Período</label>
+                <select id="periodoCurso">
+                    <option value="">Selecione o período</option>
+                    <option value="Manhã">Manhã</option>
+                    <option value="Tarde">Tarde</option>
+                    <option value="Noite">Noite</option>
+                </select>
+
+                <label for="descricaoCurso">Descrição do curso</label>
+                <textarea id="descricaoCurso" rows="4" placeholder="Digite uma breve descrição do curso"></textarea>
+
+                <button type="submit">Enviar Cadastro</button>
+                <p class="mensagem" id="mensagemCurso"></p>
+            </form>
+        </section>
+
+        <section class="card" id="professor">
+            <h2>Cadastro de Professores</h2>
+            <form id="formProfessor">
+                <label for="nomeProfessor">Nome completo</label>
+                <input type="text" id="nomeProfessor" placeholder="Nome do professor">
+
+                <label for="emailProfessor">E-mail</label>
+                <input type="email" id="emailProfessor" placeholder="professor@email.com">
+
+                <label for="disciplinaProfessor">Disciplina</label>
+                <input type="text" id="disciplinaProfessor" placeholder="Ex: Lógica Computacional">
+
+                <label for="senhaProfessor">Senha</label>
+                <input type="password" id="senhaProfessor" placeholder="Mínimo 8 caracteres, letra e número">
+
+                <label for="confirmarSenhaProfessor">Confirmar senha</label>
+                <input type="password" id="confirmarSenhaProfessor" placeholder="Digite a senha novamente">
+
+                <button type="submit">Enviar Cadastro</button>
+                <p class="mensagem" id="mensagemProfessor"></p>
+            </form>
+        </section>
+
+        <section class="card" id="aluno">
+            <h2>Cadastro de Alunos</h2>
+            <form id="formAluno">
+                <label for="nomeAluno">Nome completo</label>
+                <input type="text" id="nomeAluno" placeholder="Nome do aluno">
+
+                <label for="emailAluno">E-mail</label>
+                <input type="email" id="emailAluno" placeholder="aluno@email.com">
+
+                <label for="cursoAluno">Curso</label>
+                <select id="cursoAluno">
+                    <option value="">Selecione o curso</option>
+                    <option value="Desenvolvimento de Sistemas">Desenvolvimento de Sistemas</option>
+                    <option value="Administração">Administração</option>
+                    <option value="Informática">Informática</option>
+                </select>
+
+                <label for="observacaoAluno">Observações</label>
+                <textarea id="observacaoAluno" rows="4" placeholder="Digite alguma observação, se necessário"></textarea>
+
+                <label for="senhaAluno">Senha</label>
+                <input type="password" id="senhaAluno" placeholder="Mínimo 8 caracteres, letra e número">
+
+                <label for="confirmarSenhaAluno">Confirmar senha</label>
+                <input type="password" id="confirmarSenhaAluno" placeholder="Digite a senha novamente">
+
+                <button type="submit">Enviar Cadastro</button>
+                <p class="mensagem" id="mensagemAluno"></p>
+            </form>
+        </section>
+    </main>
+
+    <footer>
+        <p>HTML, CSS e JavaScript - Sistema de Cadastro para Instituição de Ensino</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
