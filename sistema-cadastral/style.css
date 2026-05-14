@@ -1,0 +1,104 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #fff7cc;
+    margin: 0;
+}
+
+header {
+    background-color: #ffd43b;
+    text-align: center;
+    padding: 25px;
+    color: #333;
+}
+
+main {
+    width: 90%;
+    max-width: 800px;
+    margin: 20px auto;
+}
+
+.caixa {
+    background-color: white;
+    padding: 20px;
+    margin-bottom: 20px;
+    border: 2px solid #ffd43b;
+    border-radius: 8px;
+}
+
+h2 {
+    color: #8a6d00;
+}
+
+nav a {
+    display: inline-block;
+    background-color: #ffd43b;
+    color: #333;
+    text-decoration: none;
+    padding: 10px;
+    margin: 5px;
+    border-radius: 5px;
+}
+
+nav a:hover {
+    background-color: #f0b800;
+}
+
+label {
+    display: block;
+    margin-top: 10px;
+    font-weight: bold;
+}
+
+input,
+select,
+textarea {
+    width: 100%;
+    padding: 8px;
+    margin-top: 4px;
+    border: 1px solid #aaa;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+textarea {
+    height: 70px;
+}
+
+button {
+    background-color: #ffd43b;
+    color: #333;
+    border: none;
+    padding: 10px;
+    margin-top: 15px;
+    width: 100%;
+    font-weight: bold;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #f0b800;
+}
+
+.sucesso {
+    color: green;
+    font-weight: bold;
+}
+
+.erro {
+    color: red;
+    font-weight: bold;
+}
+
+footer {
+    background-color: #ffd43b;
+    text-align: center;
+    padding: 10px;
+}
+
+@media (max-width: 600px) {
+    nav a {
+        display: block;
+        text-align: center;
+    }
+}
