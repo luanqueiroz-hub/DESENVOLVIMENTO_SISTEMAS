@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TechEdu - Cadastro Escolar</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+        <h1>TechEdu Cursos Técnicos</h1>
+        <p>Sistema simples de cadastro escolar</p>
+    </header>
+
+    <main>
+        <section class="caixa">
+            <h2>Menu Principal</h2>
+            <p>Escolha uma opção:</p>
+
+            <nav>
+                <a href="#curso">Curso</a>
+                <a href="#professor">Professor</a>
+                <a href="#aluno">Aluno</a>
+            </nav>
+        </section>
+
+        <section class="caixa" id="curso">
+            <h2>Cadastro de Curso</h2>
+
+            <form id="formCurso">
+                <label>Nome do curso</label>
+                <input type="text" id="nomeCurso">
+
+                <label>Carga horária</label>
+                <input type="number" id="cargaCurso">
+
+                <label>Turno</label>
+                <select id="turnoCurso">
+                    <option value="">Selecione</option>
+                    <option>Manhã</option>
+                    <option>Tarde</option>
+                    <option>Noite</option>
+                </select>
+
+                <label>Descrição</label>
+                <textarea id="descricaoCurso"></textarea>
+
+                <button type="submit">Enviar</button>
+                <p id="msgCurso"></p>
+            </form>
+        </section>
+
+        <section class="caixa" id="professor">
+            <h2>Cadastro de Professor</h2>
+
+            <form id="formProfessor">
+                <label>Nome completo</label>
+                <input type="text" id="nomeProfessor">
+
+                <label>CPF</label>
+                <input type="text" id="cpfProfessor">
+
+                <label>E-mail</label>
+                <input type="email" id="emailProfessor">
+
+                <label>Telefone</label>
+                <input type="text" id="telefoneProfessor">
+
+                <label>Disciplina</label>
+                <input type="text" id="disciplinaProfessor">
+
+                <label>Senha de acesso</label>
+                <input type="password" id="senhaProfessor">
+
+                <button type="submit">Enviar</button>
+                <p id="msgProfessor"></p>
+            </form>
+        </section>
+
+        <section class="caixa" id="aluno">
+            <h2>Cadastro de Aluno</h2>
+
+            <form id="formAluno">
+                <label>Nome completo</label>
+                <input type="text" id="nomeAluno">
+
+                <label>CPF</label>
+                <input type="text" id="cpfAluno">
+
+                <label>Data de nascimento</label>
+                <input type="date" id="dataAluno">
+
+                <label>E-mail</label>
+                <input type="email" id="emailAluno">
+
+                <label>Telefone</label>
+                <input type="text" id="telefoneAluno">
+
+                <label>Curso matriculado</label>
+                <select id="cursoAluno">
+                    <option value="">Selecione</option>
+                    <option>Desenvolvimento de Sistemas</option>
+                    <option>Administração</option>
+                    <option>Informática</option>
+                </select>
+
+                <label>Senha de acesso</label>
+                <input type="password" id="senhaAluno">
+
+                <button type="submit">Enviar</button>
+                <p id="msgAluno"></p>
+            </form>
+        </section>
+    </main>
+
+    <footer>
+        <p>Trabalho de Lógica de Programação</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
