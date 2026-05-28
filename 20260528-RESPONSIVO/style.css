@@ -1,0 +1,84 @@
+/* RESET */
+
+*{
+   margin:0;
+   padding:0;
+   box-sizing:border-box;
+}
+
+/* BODY */
+
+body{
+   font-family:Arial;
+}
+
+/* TOPO */
+
+header{
+   background:#003366;
+   color:white;
+   padding:20px;
+   text-align:center;
+}
+
+/* CONTAINER */
+
+.container{
+   display:flex;
+   min-height:300px;
+}
+
+/* MENU */
+
+nav{
+   width:250px;
+   background:#dddddd;
+   padding:20px;
+
+   display:flex;
+   flex-direction:column;
+   gap:10px;
+}
+
+
+
+
+
+/* BOTÕES */
+
+button{
+   padding:10px;
+   border:none;
+   background:#0055aa;
+   color:white;
+}
+
+/* CONTEÚDO */
+
+main{
+   flex:1;
+   padding:20px;
+}
+
+/* RODAPÉ */
+
+footer{
+   background:#003366;
+   color:white;
+   text-align:center;
+   padding:15px;
+}
+
+/* RESPONSIVIDADE */
+
+@media (max-width:768px){
+
+   .container{
+       flex-direction:column;
+   }
+
+   nav{
+       width:100%;
+   }
+
+}
