@@ -1,84 +1,22 @@
-/* RESET */
-
-*{
-   margin:0;
-   padding:0;
-   box-sizing:border-box;
+table{
+width: 80%;
+border-collapse: collapse;
+margin: 20px auto;
+font-family: Arial;
 }
-
-/* BODY */
-
-body{
-   font-family:Arial;
+th{
+background-color: #333;
+color: white;
+padding: 10px;
 }
-
-/* TOPO */
-
-header{
-   background:#003366;
-   color:white;
-   padding:20px;
-   text-align:center;
+td{
+border: 1px solid #999;
+padding: 10px;
+text-align: center;
 }
-
-/* CONTAINER */
-
-.container{
-   display:flex;
-   min-height:300px;
+tr:nth-child(even){
+background-color: #f2f2f2;
 }
-
-/* MENU */
-
-nav{
-   width:250px;
-   background:#dddddd;
-   padding:20px;
-
-   display:flex;
-   flex-direction:column;
-   gap:10px;
-}
-
-
-
-
-
-/* BOTÕES */
-
-button{
-   padding:10px;
-   border:none;
-   background:#0055aa;
-   color:white;
-}
-
-/* CONTEÚDO */
-
-main{
-   flex:1;
-   padding:20px;
-}
-
-/* RODAPÉ */
-
-footer{
-   background:#003366;
-   color:white;
-   text-align:center;
-   padding:15px;
-}
-
-/* RESPONSIVIDADE */
-
-@media (max-width:768px){
-
-   .container{
-       flex-direction:column;
-   }
-
-   nav{
-       width:100%;
-   }
-
+tr:hover{
+background-color: #ddd;
 }
