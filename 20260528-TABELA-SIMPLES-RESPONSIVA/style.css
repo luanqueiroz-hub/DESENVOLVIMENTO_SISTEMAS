@@ -15,7 +15,7 @@ body{
 /* TOPO */
 
 header{
-   background:hsl(73, 100%, 50%);
+   background:#003366;
    color:white;
    padding:20px;
    text-align:center;
@@ -63,7 +63,7 @@ main{
 /* RODAPÉ */
 
 footer{
-   background:#babd0e;
+   background:#003366;
    color:white;
    text-align:center;
    padding:15px;
