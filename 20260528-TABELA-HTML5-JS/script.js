@@ -1,4 +1,4 @@
-<!-- JAVASCRIPT -->
+//JAVASCRIPT
 <script>
 
 function adicionarAluno(){
@@ -34,7 +34,6 @@ celulaCurso.innerHTML = curso;
 document.getElementById("nome").value = "";
 document.getElementById("idade").value = "";
 document.getElementById("curso").value = "";
-
 }
 
 </script>
