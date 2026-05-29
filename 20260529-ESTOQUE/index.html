@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+
+<style>
+table{
+width: 80%;
+border-collapse: collapse;
+margin: auto;
+font-family: Arial;
+}
+
+caption{
+font-size: 24px;
+margin: 10px;
+font-weight: bold;
+}
+
+th{
+background-color: #222;
+color: white;
+padding: 12px;
+}
+
+td{
+border: 1px solid #999;
+padding: 10px;
+text-align: center;
+}
+
+tr:nth-child(even){
+background-color: #f0f0f0;
+}
+
+tr:hover{
+background-color: lightblue;
+}
+
+.formulario{
+width: 80%;
+margin: 20px auto;
+font-family: Arial;
+}
+
+input{
+padding: 8px;
+margin: 5px;
+}
+
+button{
+padding: 8px 15px;
+background-color: #222;
+color: white;
+border: none;
+cursor: pointer;
+}
+
+button:hover{
+background-color: #444;
+}
+</style>
+
+<title>Tabela HTML5</title>
+</head>
+
+<body>
+
+<!-- FORMULÁRIO -->
+<div class="formulario">
+<input type="text" id="produto" placeholder="Digite o produto">
+
+<input type="number" id="quantidade" placeholder="Digite a quantidade">
+
+<input type="text" id="local" placeholder="Digite o local">
+
+<button onclick="adicionaProduto()">
+Adicionar
+</button>
+</div>
+
+<!-- TABELA -->
+<table>
+
+<caption>Controle de Estoque</caption>
+
+<thead>
+<tr>
+<th>Nome</th>
+<th>Quantidade</th>
+<th>Localização</th>
+</tr>
+</thead>
+
+<tbody id="tabelaAlunos">
+
+<tr>
+<td>Lucas</td>
+<td>16</td>
+<td>DS</td>
+</tr>
+
+<tr>
+<td>Amanda</td>
+<td>17</td>
+<td>Jogos Digitais</td>
+</tr>
+
+<tr>
+<td>Pedro</td>
+<td>18</td>
+<td>Administração</td>
+</tr>
+
+</tbody>
+</table>
+
+<!-- JAVASCRIPT -->
+<script>
+
+function adicionarProdutos(){
+
+// PEGAR OS DADOS DOS INPUTS
+let produto = document.getElementById("produto").value;
+let quantidade = document.getElementById("quantidade").value;
+let curso = document.getElementById("curso").value;
+
+// VALIDAR CAMPOS
+if(nome == "" || idade == "" || curso == ""){
+alert("Preencha todos os campos!");
+return;
+}
+
+// PEGAR A TABELA
+let tabela = document.getElementById("tabelaAlunos");
+
+// CRIAR UMA NOVA LINHA
+let novaLinha = tabela.insertRow();
+
+// CRIAR AS CÉLULAS
+let celulaNome = novaLinha.insertCell(0);
+let celulaIdade = novaLinha.insertCell(1);
+let celulaCurso = novaLinha.insertCell(2);
+
+// INSERIR OS DADOS
+celulaNome.innerHTML = nome;
+celulaIdade.innerHTML = idade;
+celulaCurso.innerHTML = curso;
+
+// LIMPAR OS CAMPOS
+document.getElementById("nome").value = "";
+document.getElementById("idade").value = "";
+document.getElementById("curso").value = "";
+
+}
+
+</script>
+
+</body>
+</html>
