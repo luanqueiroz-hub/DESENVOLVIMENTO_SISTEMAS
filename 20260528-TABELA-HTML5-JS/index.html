@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+
+<style>
+table{
+width: 80%;
+border-collapse: collapse;
+margin: auto;
+font-family: Arial;
+}
+
+caption{
+font-size: 24px;
+margin: 10px;
+font-weight: bold;
+}
+
+th{
+background-color: #222;
+color: white;
+padding: 12px;
+}
+
+td{
+border: 1px solid #999;
+padding: 10px;
+text-align: center;
+}
+
+tr:nth-child(even){
+background-color: #f0f0f0;
+}
+
+tr:hover{
+background-color: lightblue;
+}
+
+.formulario{
+width: 80%;
+margin: 20px auto;
+font-family: Arial;
+}
+
+input{
+padding: 8px;
+margin: 5px;
+}
+
+button{
+padding: 8px 15px;
+background-color: #222;
+color: white;
+border: none;
+cursor: pointer;
+}
+
+button:hover{
+background-color: #444;
+}
+</style>
+
+<title>Tabela HTML5</title>
+</head>
+
+<body>
+
+<!-- FORMULÁRIO -->
+<div class="formulario">
+<input type="text" id="nome" placeholder="Digite o nome">
+
+<input type="number" id="idade" placeholder="Digite a idade">
+
+<input type="text" id="curso" placeholder="Digite o curso">
+
+<button onclick="adicionarAluno()">
+Adicionar
+</button>
+</div>
+
+<!-- TABELA -->
+<table>
+
+<caption>Cadastro de Estudantes</caption>
+
+<thead>
+<tr>
+<th>Nome</th>
+<th>Idade</th>
+<th>Curso</th>
+</tr>
+</thead>
+
+<tbody id="tabelaAlunos">
+
+<tr>
+<td>Lucas</td>
+<td>16</td>
+<td>DS</td>
+</tr>
+
+<tr>
+<td>Amanda</td>
+<td>17</td>
+<td>Jogos Digitais</td>
+</tr>
+
+<tr>
+<td>Pedro</td>
+<td>18</td>
+<td>Administração</td>
+</tr>
+
+</tbody>
+</table>
