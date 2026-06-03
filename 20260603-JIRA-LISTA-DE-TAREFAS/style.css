@@ -117,6 +117,7 @@ body::before {
     line-height: 1.05;
     letter-spacing: -1.4px;
     background: linear-gradient(135deg, #ffffff, #c4b5fd, #67e8f9);
+    background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
