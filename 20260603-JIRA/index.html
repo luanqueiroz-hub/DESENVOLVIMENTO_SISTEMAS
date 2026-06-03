@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Tarefas</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <main class="app-container">
+        <section class="todo-card">
+            <header class="app-header">
+                <span class="badge">Organização diária</span>
+                <h1>Minha Lista de Tarefas</h1>
+                <p>Adicione, conclua e acompanhe suas tarefas de forma simples.</p>
+            </header>
+
+            <div class="task-form">
+                <input 
+                    type="text" 
+                    id="taskInput" 
+                    placeholder="Digite uma nova tarefa..."
+                    autocomplete="off"
+                >
+
+                <button id="addTaskBtn" type="button">
+                    Adicionar
+                </button>
+            </div>
+
+            <div class="task-summary">
+                <p>
+                    Tarefas pendentes:
+                    <strong id="pendingCounter">0</strong>
+                </p>
+            </div>
+
+            <ul id="taskList" class="task-list"></ul>
+
+            <p id="emptyMessage" class="empty-message">
+                Nenhuma tarefa adicionada ainda.
+            </p>
+        </section>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
