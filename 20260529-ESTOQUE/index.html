@@ -95,21 +95,21 @@ Adicionar
 <tbody id="tabelaAlunos">
 
 <tr>
-<td>Lucas</td>
-<td>16</td>
-<td>DS</td>
+<td>Fanta Uva</td>
+<td>250</td>
+<td>B15</td>
 </tr>
 
 <tr>
-<td>Amanda</td>
-<td>17</td>
-<td>Jogos Digitais</td>
+<td>Coca</td>
+<td>200</td>
+<td>B14</td>
 </tr>
 
 <tr>
-<td>Pedro</td>
-<td>18</td>
-<td>Administração</td>
+<td>Pepsi</td>
+<td>500</td>
+<td>C20</td>
 </tr>
 
 </tbody>
@@ -126,31 +126,31 @@ let quantidade = document.getElementById("quantidade").value;
 let curso = document.getElementById("curso").value;
 
 // VALIDAR CAMPOS
-if(nome == "" || idade == "" || curso == ""){
+if(produto == "" || quantidade == "" || local == ""){
 alert("Preencha todos os campos!");
 return;
 }
 
 // PEGAR A TABELA
-let tabela = document.getElementById("tabelaAlunos");
+let tabela = document.getElementById("tabelaProdutos");
 
 // CRIAR UMA NOVA LINHA
 let novaLinha = tabela.insertRow();
 
 // CRIAR AS CÉLULAS
-let celulaNome = novaLinha.insertCell(0);
-let celulaIdade = novaLinha.insertCell(1);
-let celulaCurso = novaLinha.insertCell(2);
+let celulaProduto = novaLinha.insertCell(0);
+let celulaQuantidade = novaLinha.insertCell(1);
+let celulaLocal = novaLinha.insertCell(2);
 
 // INSERIR OS DADOS
-celulaNome.innerHTML = nome;
-celulaIdade.innerHTML = idade;
-celulaCurso.innerHTML = curso;
+celulaProduto.innerHTML = nome;
+celulaQuantidade.innerHTML = idade;
+celulaLocal.innerHTML = curso;
 
 // LIMPAR OS CAMPOS
-document.getElementById("nome").value = "";
-document.getElementById("idade").value = "";
-document.getElementById("curso").value = "";
+document.getElementById("produto").value = "";
+document.getElementById("quantidade").value = "";
+document.getElementById("local").value = "";
 
 }
 
