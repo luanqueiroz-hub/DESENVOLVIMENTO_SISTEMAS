@@ -3,22 +3,61 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lista de Tarefas</title>
+    <title>Sistema de Gestão e Tarefas</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <div class="container">
-        <h1>Minha Lista de Tarefas</h1>
+    <!-- HEADER PRINCIPAL -->
+    <header>
+        <h1>Painel de Controle</h1>
+        <p>Gerencie suas atividades e seções em um só lugar</p>
+    </header>
 
-        <div class="form">
-            <input type="text" id="taskInput" placeholder="Digite uma tarefa">
-            <button onclick="addTask()">Adicionar</button>
+    <div class="container">
+
+        <!-- SEÇÃO INICIAL: MENU PRINCIPAL -->
+        <div id="paginaInicial" class="secao ativa">
+            <div class="menu-principal">
+                <button class="card-menu professores" onclick="mostrarSecao('tarefas')">
+                    <div class="icon">📋</div>
+                    <h2>Lista de Tarefas</h2>
+                    <p>🏫Cadastre e gerencie suas obrigações diárias.</p>
+                </button>
+            </div>
         </div>
 
-        <ul id="taskList"></ul>
+        <!-- SEÇÃO: LISTA DE TAREFAS -->
+        <div id="paginaTarefas" class="secao">
+            <div class="page-header">
+                <button class="btn-voltar" onclick="mostrarSecao('inicial')">⬅ Voltar ao Início</button>
+                <h1>Minha Lista de Tarefas</h1>
+            </div>
+
+            <div class="content-wrapper">
+                <!-- FORMULÁRIO DE CADASTRO -->
+                <div class="form-section">
+                    <h2>Nova Tarefa</h2>
+                    <form id="formTarefa" class="form-cadastro">
+                        <div class="form-group">
+                            <label for="taskInput">Descrição da Tarefa</label>
+                            <input type="text" id="taskInput" placeholder="Digite o que precisa fazer...">
+                            <span id="erroTarefa" class="error-message" style="color: var(--danger); font-size: 0.85rem;"></span>
+                        </div>
+                        <button type="submit" class="btn-submit" style="background: var(--primary); color: white; padding: 10px; border: none; border-radius: 8px; cursor: pointer; font-weight: bold;">Adicionar Tarefa</button>
+                    </form>
+                    <div id="sucessoTarefa" style="display: none; color: var(--success); margin-top: 10px; font-weight: bold;">Tarefa adicionada com sucesso!</div>
+                </div>
+
+                <!-- LISTAGEM -->
+                <div class="list-section">
+                    <h2>Suas Tarefas</h2>
+                    <ul id="taskList" style="list-style: none; padding: 0;"></ul>
+                </div>
+            </div>
+        </div>
+
+       
     </div>
 
     <script src="script.js"></script>
-</body>
-</html>

@@ -1,0 +1,132 @@
+   <!-- LISTAGEM EM TABELA -->
+                <div class="list-section">
+                    <h2>Suas Tarefas</h2>
+                    <div style="overflow-x: auto;">
+                        <table class="tabela-tarefas">
+                            <thead>
+                                <tr>
+                                    <th>Tarefa</th>
+                                    <th>Status</th>
+                                    <th style="width: 180px; text-align: center;">Ações</th>
+                                </tr>
+                            </thead>
+                            <tbody id="taskTableBody">
+                                <!-- As linhas da tabela entram aqui via JavaScript -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- LOGICA EM JAVASCRIPT -->
+    <script>
+        function mostrarSecao(secao) {
+            const inicial = document.getElementById('paginaInicial');
+            const tarefas = document.getElementById('paginaTarefas');
+            if (secao === 'tarefas') {
+                inicial.style.display = 'none';
+                tarefas.style.display = 'block';
+            } else {
+                inicial.style.display = 'block';
+                tarefas.style.display = 'none';
+            }
+        }
+
+        const formTarefa = document.getElementById('formTarefa');
+        const taskInput = document.getElementById('taskInput');
+        const taskTableBody = document.getElementById('taskTableBody');
+        const erroTarefa = document.getElementById('erroTarefa');
+        const sucessoTarefa = document.getElementById('sucessoTarefa');
+
+        formTarefa.addEventListener('submit', function(e) {
+            e.preventDefault();
+           
+            const textoTarefa = taskInput.value.trim();
+
+            if (textoTarefa === "") {
+                erroTarefa.textContent = "Por favor, digite uma descrição para a tarefa.";
+                sucessoTarefa.style.display = "none";
+                return;
+            }
+
+            erroTarefa.textContent = "";
+
+            // Criar a linha da tabela (tr)
+            const tr = document.createElement('tr');
+
+            // Coluna 1: Descrição da Tarefa
+            const tdTexto = document.createElement('td');
+            tdTexto.textContent = textoTarefa;
+            tdTexto.classList.add('texto-tarefa');
+
+            // Coluna 2: Badge de Status (Começa em aberto)
+            const tdStatus = document.createElement('td');
+            const badgeStatus = document.createElement('span');
+            badgeStatus.textContent = "Em andamento";
+            badgeStatus.classList.add('badge', 'badge-pendente');
+            tdStatus.appendChild(badgeStatus);
+
+            // Coluna 3: Botões de Ação
+            const tdAcoes = document.createElement('td');
+            tdAcoes.style.textAlign = "center";
+           
+            const divAcoes = document.createElement('div');
+            divAcoes.style.display = "flex";
+            divAcoes.style.gap = "5px";
+            divAcoes.style.justifyContent = "center";
+
+            // Botão Alternar Status
+            const btnStatus = document.createElement('button');
+            btnStatus.textContent = "Concluir";
+            btnStatus.classList.add('btn-tabela', 'btn-concluir');
+
+            btnStatus.addEventListener('click', function() {
+                tr.classList.toggle('linha-concluida');
+               
+                if (tr.classList.contains('linha-concluida')) {
+                    // Mudar para Concluído / Finalizado
+                    badgeStatus.textContent = "Finalizado";
+                    badgeStatus.className = "badge badge-finalizado";
+                   
+                    btnStatus.textContent = "Pendente";
+                    btnStatus.className = "btn-tabela btn-pendente";
+                } else {
+                    // Retornar para Pendente / Em andamento
+                    badgeStatus.textContent = "Em andamento";
+                    badgeStatus.className = "badge badge-pendente";
+                   
+                    btnStatus.textContent = "Concluir";
+                    btnStatus.className = "btn-tabela btn-concluir";
+                }
+            });
+
+            // Botão Excluir
+            const btnExcluir = document.createElement('button');
+            btnExcluir.textContent = "Excluir";
+            btnExcluir.classList.add('btn-tabela', 'btn-excluir');
+
+            btnExcluir.addEventListener('click', function() {
+                tr.remove();
+            });
+
+            // Montar a linha
+            divAcoes.appendChild(btnStatus);
+            divAcoes.appendChild(btnExcluir);
+            tdAcoes.appendChild(divAcoes);
+           
+            tr.appendChild(tdTexto);
+            tr.appendChild(tdStatus);
+            tr.appendChild(tdAcoes);
+           
+            taskTableBody.appendChild(tr);
+
+            // Feedback visual e reset do form
+            sucessoTarefa.style.display = "block";
+            setTimeout(() => { sucessoTarefa.style.display = "none"; }, 3000);
+            taskInput.value = "";
+        });
+    </script>
+</body>
+</html>
