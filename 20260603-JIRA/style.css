@@ -1,3 +1,23 @@
+:root {
+    --bg-primary: #09090f;
+    --bg-secondary: #11111c;
+    --card-bg: rgba(22, 22, 34, 0.86);
+    --card-border: rgba(255, 255, 255, 0.08);
+
+    --text-primary: #f8fafc;
+    --text-secondary: #a1a1aa;
+    --text-muted: #71717a;
+
+    --accent-primary: #8b5cf6;
+    --accent-secondary: #06b6d4;
+    --accent-danger: #ef4444;
+    --accent-success: #22c55e;
+
+    --input-bg: rgba(255, 255, 255, 0.06);
+    --task-bg: rgba(255, 255, 255, 0.055);
+    --task-border: rgba(255, 255, 255, 0.08);
+}
+
 * {
     box-sizing: border-box;
     margin: 0;
@@ -6,9 +26,25 @@
 
 body {
     min-height: 100vh;
-    font-family: Arial, Helvetica, sans-serif;
-    background: linear-gradient(135deg, #667eea, #764ba2);
-    color: #2d3748;
+    font-family: Inter, Arial, Helvetica, sans-serif;
+    background:
+        radial-gradient(circle at top left, rgba(139, 92, 246, 0.35), transparent 35%),
+        radial-gradient(circle at bottom right, rgba(6, 182, 212, 0.25), transparent 35%),
+        linear-gradient(135deg, #050509, #11111c 55%, #070711);
+    color: var(--text-primary);
+    overflow-x: hidden;
+}
+
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    background-image:
+        linear-gradient(rgba(255, 255, 255, 0.025) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.025) 1px, transparent 1px);
+    background-size: 42px 42px;
+    pointer-events: none;
+    mask-image: linear-gradient(to bottom, rgba(0,0,0,0.8), transparent);
 }
 
 .app-container {
@@ -16,192 +52,308 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 24px;
+    padding: 32px 20px;
 }
 
 .todo-card {
+    position: relative;
     width: 100%;
-    max-width: 620px;
-    background: #ffffff;
-    border-radius: 24px;
-    padding: 32px;
-    box-shadow: 0 24px 60px rgba(0, 0, 0, 0.18);
+    max-width: 680px;
+    padding: 38px;
+    border-radius: 30px;
+    background: var(--card-bg);
+    border: 1px solid var(--card-border);
+    box-shadow:
+        0 30px 80px rgba(0, 0, 0, 0.55),
+        inset 0 1px 0 rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(22px);
+    overflow: hidden;
+}
+
+.todo-card::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    padding: 1px;
+    border-radius: 30px;
+    background: linear-gradient(
+        135deg,
+        rgba(139, 92, 246, 0.55),
+        rgba(6, 182, 212, 0.25),
+        rgba(255, 255, 255, 0.04)
+    );
+    mask:
+        linear-gradient(#fff 0 0) content-box,
+        linear-gradient(#fff 0 0);
+    mask-composite: exclude;
+    pointer-events: none;
 }
 
 .app-header {
+    position: relative;
     text-align: center;
-    margin-bottom: 28px;
+    margin-bottom: 34px;
 }
 
 .badge {
-    display: inline-block;
-    margin-bottom: 12px;
-    padding: 6px 14px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 16px;
+    padding: 8px 16px;
     border-radius: 999px;
-    background: #edf2ff;
-    color: #5a67d8;
-    font-size: 13px;
+    background: rgba(139, 92, 246, 0.14);
+    border: 1px solid rgba(139, 92, 246, 0.35);
+    color: #c4b5fd;
+    font-size: 12px;
     font-weight: 700;
-    letter-spacing: 0.4px;
+    letter-spacing: 0.8px;
+    text-transform: uppercase;
 }
 
 .app-header h1 {
-    font-size: 32px;
-    color: #1a202c;
-    margin-bottom: 8px;
+    margin-bottom: 10px;
+    font-size: clamp(30px, 5vw, 44px);
+    line-height: 1.05;
+    letter-spacing: -1.4px;
+    background: linear-gradient(135deg, #ffffff, #c4b5fd, #67e8f9);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 
 .app-header p {
+    max-width: 460px;
+    margin: 0 auto;
+    color: var(--text-secondary);
     font-size: 15px;
-    color: #718096;
+    line-height: 1.6;
 }
 
 .task-form {
     display: flex;
     gap: 12px;
-    margin-bottom: 18px;
+    margin-bottom: 20px;
 }
 
 .task-form input {
     flex: 1;
-    border: 2px solid #e2e8f0;
-    border-radius: 14px;
-    padding: 14px 16px;
+    min-height: 54px;
+    padding: 0 18px;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 18px;
+    background: var(--input-bg);
+    color: var(--text-primary);
     font-size: 15px;
     outline: none;
-    transition: 0.2s ease;
+    transition: all 0.25s ease;
+}
+
+.task-form input::placeholder {
+    color: var(--text-muted);
 }
 
 .task-form input:focus {
-    border-color: #667eea;
-    box-shadow: 0 0 0 4px rgba(102, 126, 234, 0.15);
+    border-color: rgba(139, 92, 246, 0.75);
+    box-shadow:
+        0 0 0 4px rgba(139, 92, 246, 0.12),
+        0 0 28px rgba(139, 92, 246, 0.18);
+    background: rgba(255, 255, 255, 0.08);
 }
 
 .task-form button {
+    min-height: 54px;
+    padding: 0 24px;
     border: none;
-    border-radius: 14px;
-    padding: 14px 20px;
-    background: #667eea;
-    color: #ffffff;
+    border-radius: 18px;
+    background: linear-gradient(135deg, var(--accent-primary), var(--accent-secondary));
+    color: white;
     font-size: 15px;
-    font-weight: 700;
+    font-weight: 800;
+    letter-spacing: 0.2px;
     cursor: pointer;
-    transition: 0.2s ease;
+    box-shadow: 0 14px 34px rgba(139, 92, 246, 0.35);
+    transition: all 0.25s ease;
 }
 
 .task-form button:hover {
-    background: #5a67d8;
-    transform: translateY(-1px);
+    transform: translateY(-2px);
+    box-shadow: 0 18px 42px rgba(6, 182, 212, 0.28);
+    filter: brightness(1.08);
+}
+
+.task-form button:active {
+    transform: translateY(0);
 }
 
 .task-summary {
-    margin-bottom: 18px;
-    padding: 14px 16px;
-    border-radius: 14px;
-    background: #f7fafc;
-    border: 1px solid #edf2f7;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 22px;
+    padding: 16px 18px;
+    border-radius: 18px;
+    background: rgba(255, 255, 255, 0.045);
+    border: 1px solid rgba(255, 255, 255, 0.07);
 }
 
 .task-summary p {
-    color: #4a5568;
-    font-size: 15px;
+    color: var(--text-secondary);
+    font-size: 14px;
 }
 
 .task-summary strong {
-    color: #667eea;
-    font-size: 18px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 34px;
+    height: 34px;
+    margin-left: 8px;
+    border-radius: 12px;
+    background: rgba(139, 92, 246, 0.18);
+    color: #ddd6fe;
+    font-size: 16px;
+    border: 1px solid rgba(139, 92, 246, 0.3);
 }
 
 .task-list {
     list-style: none;
     display: flex;
     flex-direction: column;
-    gap: 12px;
+    gap: 14px;
 }
 
 .task-item {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    gap: 14px;
-    padding: 14px 16px;
-    background: #f8fafc;
-    border: 1px solid #e2e8f0;
-    border-radius: 16px;
-    transition: 0.2s ease;
+    gap: 16px;
+    padding: 16px;
+    border-radius: 20px;
+    background: var(--task-bg);
+    border: 1px solid var(--task-border);
+    transition: all 0.25s ease;
+    animation: taskEnter 0.25s ease;
 }
 
 .task-item:hover {
-    transform: translateY(-1px);
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.06);
+    transform: translateY(-2px);
+    border-color: rgba(139, 92, 246, 0.35);
+    background: rgba(255, 255, 255, 0.075);
+    box-shadow: 0 14px 34px rgba(0, 0, 0, 0.22);
 }
 
 .task-content {
     display: flex;
     align-items: center;
-    gap: 12px;
+    gap: 14px;
     flex: 1;
+    min-width: 0;
 }
 
 .task-content input[type="checkbox"] {
-    width: 18px;
-    height: 18px;
-    accent-color: #667eea;
+    appearance: none;
+    width: 22px;
+    height: 22px;
+    flex: 0 0 22px;
+    border-radius: 8px;
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    background: rgba(255, 255, 255, 0.06);
     cursor: pointer;
+    position: relative;
+    transition: all 0.25s ease;
+}
+
+.task-content input[type="checkbox"]:checked {
+    background: linear-gradient(135deg, var(--accent-success), #14b8a6);
+    border-color: transparent;
+    box-shadow: 0 0 18px rgba(34, 197, 94, 0.25);
+}
+
+.task-content input[type="checkbox"]:checked::after {
+    content: "✓";
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #ffffff;
+    font-size: 14px;
+    font-weight: 900;
 }
 
 .task-text {
+    color: var(--text-primary);
     font-size: 15px;
-    color: #2d3748;
+    line-height: 1.5;
     word-break: break-word;
+    transition: all 0.25s ease;
 }
 
 .task-item.completed {
-    background: #f0fff4;
-    border-color: #c6f6d5;
+    border-color: rgba(34, 197, 94, 0.24);
+    background: rgba(34, 197, 94, 0.07);
 }
 
 .task-item.completed .task-text {
-    color: #718096;
+    color: var(--text-muted);
     text-decoration: line-through;
 }
 
 .remove-btn {
-    border: none;
-    border-radius: 12px;
-    padding: 9px 12px;
-    background: #fff5f5;
-    color: #e53e3e;
+    flex-shrink: 0;
+    border: 1px solid rgba(239, 68, 68, 0.28);
+    border-radius: 14px;
+    padding: 10px 13px;
+    background: rgba(239, 68, 68, 0.08);
+    color: #fca5a5;
     font-size: 13px;
-    font-weight: 700;
+    font-weight: 800;
     cursor: pointer;
-    transition: 0.2s ease;
+    transition: all 0.25s ease;
 }
 
 .remove-btn:hover {
-    background: #e53e3e;
-    color: #ffffff;
+    background: rgba(239, 68, 68, 0.95);
+    color: white;
+    transform: translateY(-1px);
+    box-shadow: 0 10px 24px rgba(239, 68, 68, 0.25);
 }
 
 .empty-message {
-    margin-top: 20px;
+    margin-top: 26px;
+    padding: 22px;
+    border-radius: 20px;
     text-align: center;
-    color: #a0aec0;
+    color: var(--text-muted);
     font-size: 14px;
+    border: 1px dashed rgba(255, 255, 255, 0.12);
+    background: rgba(255, 255, 255, 0.035);
 }
 
 .empty-message.hidden {
     display: none;
 }
 
-@media (max-width: 520px) {
-    .todo-card {
-        padding: 24px;
-        border-radius: 20px;
+@keyframes taskEnter {
+    from {
+        opacity: 0;
+        transform: translateY(8px) scale(0.98);
     }
 
-    .app-header h1 {
-        font-size: 26px;
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+@media (max-width: 560px) {
+    .app-container {
+        padding: 20px 14px;
+    }
+
+    .todo-card {
+        padding: 28px 20px;
+        border-radius: 24px;
     }
 
     .task-form {
@@ -212,7 +364,15 @@ body {
         width: 100%;
     }
 
+    .task-summary {
+        align-items: flex-start;
+    }
+
     .task-item {
         align-items: flex-start;
+    }
+
+    .remove-btn {
+        padding: 9px 11px;
     }
 }
