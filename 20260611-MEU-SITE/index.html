@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TechStore - Modelo de Site</title>
+
+    <!-- Ligação com o CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- TOPO COM LOGO -->
+    <header>
+        <div class="logo">
+            <img src="img/logo.png" alt="Logo da empresa">
+            <span>TechStore</span>
+        </div>
+    </header>
+
+    <!-- ÁREA PRINCIPAL -->
+    <main>
+
+        <!-- MENU LATERAL -->
+        <aside class="menu">
+            <button onclick="mostrarConteudo('quemSomos')">🏢 Quem Somos</button>
+            <button onclick="mostrarConteudo('servicos')">🛠️ Serviços</button>
+            <button onclick="mostrarConteudo('produtos')">🛒 Produtos</button>
+            <button onclick="mostrarConteudo('contato')">✉️ Contato</button>
+        </aside>
+
+        <!-- CONTEÚDO -->
+        <section class="conteudo" id="conteudo">
+            <h2>Bem-vindo!</h2>
+            <p>Selecione uma opção do menu.</p>
+            <p>Este site foi criado usando HTML, CSS e JavaScript.</p>
+        </section>
+
+    </main>
+
+    <!-- RODAPÉ -->
+    <footer>
+        <p>Email: contato@techstore.com</p>
+        <p>Endereço: Rua Central, 100</p>
+        <p>Telefone: (41) 99999-9999</p>
+
+        <div class="redes-sociais">
+            <a href="#">📷 Instagram</a>
+            <a href="#">📘 Facebook</a>
+            <a href="#">💼 LinkedIn</a>
+            <a href="#">💬 WhatsApp</a>
+        </div>
+    </footer>
+
+    <!-- Ligação com JavaScript -->
+    <script src="script.js"></script>
+</body>
+</html>
