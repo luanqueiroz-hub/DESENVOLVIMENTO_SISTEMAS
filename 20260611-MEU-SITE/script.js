@@ -57,15 +57,26 @@ function mostrarConteudo(opcao) {
 
     else if (opcao === "contato") {
         conteudo.innerHTML = `
-            <h2>✉️ Página de Contato</h2>
+            <h2>✉️ Contato</h2>
             <p>Entre em contato conosco preenchendo o formulário abaixo:</p>
 
             <form class="form-contato">
                 <input type="text" placeholder="Digite seu nome">
                 <input type="email" placeholder="Digite seu e-mail">
-                <textarea rows="5" placeholder="Digite sua mensagem"></textarea>
+                <textarea rows="4" placeholder="Digite sua mensagem"></textarea>
                 <button type="button" onclick="enviarMensagem()">Enviar</button>
             </form>
+
+            <div class="contato-redes">
+                <h3>Nossas redes sociais</h3>
+
+                <div class="links-redes">
+                    <a href="#">📷 Instagram</a>
+                    <a href="#">📘 Facebook</a>
+                    <a href="#">💼 LinkedIn</a>
+                    <a href="#">💬 WhatsApp</a>
+                </div>
+            </div>
         `;
     }
 }

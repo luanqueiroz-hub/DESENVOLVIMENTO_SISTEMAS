@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@500;600;700&family=Rajdhani:wght@400;500;600;700&display=swap');
+
 /* CONFIGURAÇÃO GERAL */
 * {
     box-sizing: border-box;
@@ -7,24 +9,24 @@ body {
     margin: 0;
     height: 100vh;
     overflow: hidden;
-    font-family: "Trebuchet MS", Arial, sans-serif;
-    background-color: #fff7e8;
-    color: #222222;
+    font-family: "Rajdhani", Arial, sans-serif;
+    background-color: #fff8ef;
+    color: #1f1f1f;
 }
 
 /* TOPO */
 header {
-    height: 90px;
+    height: 95px;
     background-color: #ffffff;
     display: flex;
     align-items: center;
     justify-content: flex-start;
-    padding-left: 45px;
-    border-bottom: 4px solid #ff9f1c;
-    box-shadow: 0 3px 12px rgba(0, 0, 0, 0.08);
+    padding-left: 2px; /* quanto menor, mais para a esquerda */
+    border-bottom: 4px solid #ff8c00;
+    box-shadow: 0 3px 14px rgba(0, 0, 0, 0.08);
 }
 
-/* LOGO NO TOPO ESQUERDO */
+/* LOGO */
 .logo {
     display: flex;
     align-items: center;
@@ -32,7 +34,7 @@ header {
 }
 
 .logo img {
-    width: 250px;
+    width: 280px; /* aqui aumenta ou diminui a logo */
     height: auto;
     display: block;
 }
@@ -40,37 +42,38 @@ header {
 /* ÁREA PRINCIPAL */
 main {
     display: flex;
-    height: calc(100vh - 90px - 90px);
+    height: calc(100vh - 95px - 65px);
 }
 
 /* MENU LATERAL */
 .menu {
-    width: 260px;
-    background: linear-gradient(180deg, #ff9f1c, #f77f00);
-    padding: 25px 18px;
+    width: 250px;
+    background: linear-gradient(180deg, #ff9f1c, #ff7a00);
+    padding: 24px 16px;
     display: flex;
     flex-direction: column;
     gap: 16px;
 }
 
-/* BOTÕES */
+/* BOTÕES DO MENU */
 .menu button {
-    padding: 16px 18px;
+    padding: 15px 18px;
     border: none;
     background-color: #ffffff;
-    color: #222222;
+    color: #1f1f1f;
     cursor: pointer;
-    font-size: 16px;
+    font-family: "Rajdhani", Arial, sans-serif;
+    font-size: 18px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
     border-radius: 14px;
     text-align: left;
-    font-weight: bold;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.12);
+    box-shadow: 0 5px 14px rgba(0, 0, 0, 0.16);
     transition: 0.3s;
 }
 
-/* EFEITO AO PASSAR O MOUSE */
 .menu button:hover {
-    background-color: #222222;
+    background-color: #1f1f1f;
     color: #ffffff;
     transform: translateX(6px);
 }
@@ -78,23 +81,28 @@ main {
 /* CONTEÚDO */
 .conteudo {
     flex: 1;
-    padding: 40px 45px;
+    padding: 38px 46px;
     background-color: #fffaf0;
     overflow: hidden;
 }
 
 .conteudo h2 {
-    color: #f77f00;
-    font-size: 38px;
     margin-top: 0;
     margin-bottom: 20px;
+    font-family: "Orbitron", Arial, sans-serif;
+    font-size: 34px;
+    font-weight: 700;
+    letter-spacing: 1.4px;
+    color: #ff7a00;
 }
 
 .conteudo p,
 .conteudo li {
-    font-size: 18px;
-    line-height: 1.6;
-    color: #2d2d2d;
+    font-family: "Rajdhani", Arial, sans-serif;
+    font-size: 21px;
+    font-weight: 500;
+    line-height: 1.55;
+    color: #1f1f1f;
 }
 
 /* PRODUTOS */
@@ -108,26 +116,38 @@ main {
     width: 210px;
     background-color: #ffffff;
     border: 2px solid #ffd166;
-    border-radius: 16px;
+    border-radius: 18px;
     padding: 15px;
     text-align: center;
-    box-shadow: 0 5px 14px rgba(0, 0, 0, 0.10);
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.10);
+    transition: 0.3s;
+}
+
+.card-produto:hover {
+    transform: translateY(-5px);
+    border-color: #ff8c00;
 }
 
 .card-produto img {
     width: 130px;
-    height: 100px;
+    height: 95px;
     object-fit: contain;
 }
 
 .card-produto h3 {
-    color: #f77f00;
+    font-family: "Orbitron", Arial, sans-serif;
+    font-size: 18px;
+    color: #ff7a00;
     margin-bottom: 8px;
+}
+
+.card-produto p {
+    font-size: 17px;
 }
 
 /* FORMULÁRIO DE CONTATO */
 .form-contato {
-    max-width: 420px;
+    max-width: 430px;
     display: flex;
     flex-direction: column;
     gap: 10px;
@@ -137,61 +157,99 @@ main {
 .form-contato textarea {
     padding: 12px;
     border: 2px solid #ffd166;
-    border-radius: 10px;
-    font-size: 16px;
+    border-radius: 12px;
+    font-family: "Rajdhani", Arial, sans-serif;
+    font-size: 18px;
     background-color: #ffffff;
+    outline: none;
+}
+
+.form-contato input:focus,
+.form-contato textarea:focus {
+    border-color: #ff8c00;
 }
 
 .form-contato button {
     padding: 12px;
     border: none;
-    background-color: #ff9f1c;
+    background-color: #ff8c00;
     color: #ffffff;
-    font-size: 16px;
-    border-radius: 10px;
+    font-family: "Rajdhani", Arial, sans-serif;
+    font-size: 18px;
+    font-weight: 700;
+    border-radius: 12px;
     cursor: pointer;
-    font-weight: bold;
+    transition: 0.3s;
 }
 
 .form-contato button:hover {
-    background-color: #f77f00;
+    background-color: #1f1f1f;
+}
+
+/* REDES SOCIAIS NA PÁGINA CONTATO */
+.contato-redes {
+    margin-top: 22px;
+}
+
+.contato-redes h3 {
+    font-family: "Orbitron", Arial, sans-serif;
+    color: #ff7a00;
+    font-size: 20px;
+    margin-bottom: 12px;
+}
+
+.links-redes {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+.links-redes a {
+    background-color: #ffffff;
+    color: #1f1f1f;
+    text-decoration: none;
+    padding: 12px 18px;
+    border-radius: 12px;
+    font-family: "Rajdhani", Arial, sans-serif;
+    font-size: 17px;
+    font-weight: 700;
+    border: 2px solid #ffd166;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.10);
+    transition: 0.3s;
+}
+
+.links-redes a:hover {
+    background-color: #ff8c00;
+    color: #ffffff;
+    border-color: #ff8c00;
+    transform: translateY(-3px);
 }
 
 /* RODAPÉ */
 footer {
-    height: 90px;
-    background-color: #222222;
+    height: 65px;
+    background-color: #1f1f1f;
     color: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     text-align: center;
     padding: 10px;
-    font-size: 14px;
+    font-family: "Rajdhani", Arial, sans-serif;
+    font-size: 16px;
+    font-weight: 600;
+    border-top: 3px solid #ff8c00;
 }
 
 footer p {
-    margin: 3px;
-}
-
-/* REDES SOCIAIS */
-.redes-sociais {
-    margin-top: 6px;
-}
-
-.redes-sociais a {
-    color: #ffd166;
-    text-decoration: none;
-    margin: 0 8px;
-    font-weight: bold;
-}
-
-.redes-sociais a:hover {
-    color: #ff9f1c;
+    margin: 0;
 }
 
 /* RESPONSIVIDADE */
 @media (max-width: 768px) {
     body {
-        overflow: auto;
         height: auto;
+        overflow: auto;
     }
 
     header {
@@ -200,7 +258,7 @@ footer p {
     }
 
     .logo img {
-        width: 210px;
+        width: 220px;
     }
 
     main {
