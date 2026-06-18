@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Modelo de Site</title>
+
+        <!--LIGAÇÃO COM O CSS-->
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+
+        <!--TOPO-->
+        <header>
+            <div class="logo">
+            COLÉGIO ESTADUAL DO PARANÁ
+        </div>
+        </header>
+
+        <!--ÁREA PRINCIPAL-->
+        <main>
+            <!--MENU LATERAL-->
+            <aside class="menu">
+                <button onclick="mostrarConteudo('quemSomos')">
+                🏛️ Quem Somos
+            </button>
+
+            <button onclick="mostrarConteudo('servicos')">
+                🛠️ Serviços
+            </button>
+
+            <button onclick="mostrarConteudo('produtos')">
+                🛒 Produtos
+            </button>
+
+            <button onclick="mostrarConteudo(contato)">
+                📞 Contato
+            </button>
+            </aside>
+
+            <!--CONTEÚDO-->
+            <section class="conteudo" id="conteudo">
+                <h2>Bem-vindo!</h2>
+                <p>Selecione uma opção do menu.</p>
+            </section>
+        </main>
+
+        <!--RODAPÉ-->
+        <footer>
+            <p>E-mail: luan@gmail.com</p>
+            <p>Endereço: Rua Moyses Marcondes, 428</p>
+            <p>Telefone: (41) 99730-6937</p>
+
+        <div class="redes sociais">
+            <p>Redes sociais:</p>
+            <a href="#">Instagram</a>
+            <a href="#">Facebook</a>
+            <a href="#">WhatsApp</a>
+        </div>
+        </footer>
+
+        <!--LIGAÇÃO COM JAVASCRIPT-->
+        <script src="script.js"></script>
+    </body>
+</html>
