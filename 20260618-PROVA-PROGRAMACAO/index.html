@@ -1,65 +1,116 @@
 <!DOCTYPE html>
-<html lang="pt-br">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Modelo de Site</title>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<title>Escola</title>
 
-        <!--LIGAÇÃO COM O CSS-->
-        <link rel="stylesheet" href="style.css">
-    </head>
-    <body>
+<style>
+body {
+font-family: Arial, sans-serif;
+margin: 0;
+background-color: #f2f2f2;
+text-align: center;
+}
 
-        <!--TOPO-->
-        <header>
-            <div class="logo">
-            COLÉGIO ESTADUAL DO PARANÁ
-        </div>
-        </header>
+header {
+background-color: #004aad;
+color: white;
+padding: 25px;
+}
 
-        <!--ÁREA PRINCIPAL-->
-        <main>
-            <!--MENU LATERAL-->
-            <aside class="menu">
-                <button onclick="mostrarConteudo('quemSomos')">
-                🏛️ Quem Somos
-            </button>
+nav {
+background-color: #333;
+padding: 15px;
+}
 
-            <button onclick="mostrarConteudo('servicos')">
-                🛠️ Serviços
-            </button>
+nav a {
+color: white;
+text-decoration: none;
+margin: 0 20px;
+font-weight: bold;
+}
 
-            <button onclick="mostrarConteudo('produtos')">
-                🛒 Produtos
-            </button>
+.principal {
+background-color: white;
+width: 80%;
+margin: 30px auto;
+padding: 25px;
+border-radius: 10px;
+}
 
-            <button onclick="mostrarConteudo(contato)">
-                📞 Contato
-            </button>
-            </aside>
+form {
+margin-top: 20px;
+}
 
-            <!--CONTEÚDO-->
-            <section class="conteudo" id="conteudo">
-                <h2>Bem-vindo!</h2>
-                <p>Selecione uma opção do menu.</p>
-            </section>
-        </main>
+input {
+padding: 10px;
+margin: 8px;
+width: 250px;
+}
 
-        <!--RODAPÉ-->
-        <footer>
-            <p>E-mail: luan@gmail.com</p>
-            <p>Endereço: Rua Moyses Marcondes, 428</p>
-            <p>Telefone: (41) 99730-6937</p>
+button {
+background-color: #004aad;
+color: white;
+padding: 10px 25px;
+border: none;
+border-radius: 5px;
+cursor: pointer;
+}
 
-        <div class="redes sociais">
-            <p>Redes sociais:</p>
-            <a href="#">Instagram</a>
-            <a href="#">Facebook</a>
-            <a href="#">WhatsApp</a>
-        </div>
-        </footer>
+button:hover {
+background-color: #00327a;
+}
 
-        <!--LIGAÇÃO COM JAVASCRIPT-->
-        <script src="script.js"></script>
-    </body>
+#mensagem {
+margin-top: 15px;
+font-weight: bold;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+<h1>Colégio Estadualdo Paraná</h1>
+</header>
+
+<nav>
+<a href="#">Início</a>
+<a href="#">Cursos</a>
+<a href="#">Contato</a>
+</nav>
+
+<div class="principal">
+<h2>Cadastro de Aluno</h2>
+
+<form onsubmit="validarFormulario(event)">
+<input type="text" id="nome" placeholder="Nome">
+<br>
+<input type="email" id="email" placeholder="E-mail">
+<br>
+<button type="submit">Enviar</button>
+</form>
+
+<p id="mensagem"></p>
+</div>
+
+<script>
+function validarFormulario(event) {
+event.preventDefault();
+
+const nome = document.getElementById("nome").value;
+const email = document.getElementById("email").value;
+const mensagem = document.getElementById("mensagem");
+
+if (nome === "" || email === "") {
+mensagem.style.color = "red";
+mensagem.textContent = "Erro: preencha os campos Nome e E-mail.";
+} else {
+mensagem.style.color = "green";
+mensagem.textContent = "Cadastro realizado com sucesso!";
+}
+}
+</script>
+
+</body>
 </html>
