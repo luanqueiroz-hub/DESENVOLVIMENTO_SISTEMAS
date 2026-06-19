@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Soma da Matriz 3x3</title>
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f2f2f2;
+      text-align: center;
+      padding: 40px;
+    }
+
+    .container {
+      background-color: white;
+      padding: 30px;
+      border-radius: 12px;
+      width: 400px;
+      margin: auto;
+      box-shadow: 0 0 10px #aaa;
+    }
+
+    h1 {
+      color: #2c3e50;
+    }
+
+    table {
+      margin: 20px auto;
+      border-collapse: collapse;
+    }
+
+    td {
+      border: 2px solid #2c3e50;
+      padding: 20px;
+      font-size: 24px;
+      background-color: #dfefff;
+    }
+
+    .resultado {
+      font-size: 22px;
+      font-weight: bold;
+      color: #0a7a28;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="container">
+    <h1>Minha Matriz 3x3</h1>
+
+    <table>
+      <tr>
+        <td>4</td>
+        <td>8</td>
+        <td>2</td>
+      </tr>
+      <tr>
+        <td>7</td>
+        <td>5</td>
+        <td>3</td>
+      </tr>
+      <tr>
+        <td>9</td>
+        <td>1</td>
+        <td>6</td>
+      </tr>
+    </table>
+
+    <p class="resultado" id="soma"></p>
+  </div>
+
+  <script>
+    let matriz = [
+      [4, 8, 2],
+      [7, 5, 3],
+      [9, 1, 6]
+    ];
+
+    let soma = 0;
+
+    for (let linha = 0; linha < 3; linha++) {
+      for (let coluna = 0; coluna < 3; coluna++) {
+        soma += matriz[linha][coluna];
+      }
+    }
+
+    document.getElementById("soma").innerHTML = "A soma dos valores é: " + soma;
+  </script>
+
+</body>
+</html>
