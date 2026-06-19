@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jogo da Velha - Matrizes</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 20px;
+        }
+
+        h1 {
+            color: #333;
+        }
+
+        .board {
+            display: grid;
+            grid-template-columns: repeat(3, 100px);
+            grid-template-rows: repeat(3, 100px);
+            gap: 5px;
+            margin-top: 20px;
+            background-color: #333;
+            padding: 5px;
+            border-radius: 10px;
+        }
+
+        .cell {
+            width: 100px;
+            height: 100px;
+            background-color: #fff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 2.5rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background-color 0.2s;
+        }
+
+        .cell:hover {
+            background-color: #e0e0e0;
+        }
+
+        h2 {
+            margin-top: 20px;
+            color: #444;
+        }
+
+        button {
+            margin-top: 10px;
+            padding: 10px 20px;
+            font-size: 1rem;
+            font-weight: bold;
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.2s;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Jogo da Velha</h1>
+    
+    <div class="board" id="board">
+        <!-- Linha 0 -->
+        <div class="cell" data-row="0" data-col="0"></div>
+        <div class="cell" data-row="0" data-col="1"></div>
+        <div class="cell" data-row="0" data-col="2"></div>
+        <!-- Linha 1 -->
+        <div class="cell" data-row="1" data-col="0"></div>
+        <div class="cell" data-row="1" data-col="1"></div>
+        <div class="cell" data-row="1" data-col="2"></div>
+        <!-- Linha 2 -->
+        <div class="cell" data-row="2" data-col="0"></div>
+        <div class="cell" data-row="2" data-col="1"></div>
+        <div class="cell" data-row="2" data-col="2"></div>
+    </div>
+
+    <h2 id="status">Turno do X</h2>
+    <button id="restart">Reiniciar Jogo</button>
+
+    <script>
+        const cells = document.querySelectorAll('.cell');
+        const statusText = document.getElementById('status');
+        const restartBtn = document.getElementById('restart');
+
+        // Matriz 3x3 que representa o tabuleiro do jogo
+        let board = [
+            ["", "", ""],
+            ["", "", ""],
+            ["", "", ""]
+        ];
+
+        let currentPlayer = "X";
+        let running = true;
+
+        // Adiciona o evento de clique para todas as células
+        cells.forEach(cell => cell.addEventListener('click', cellClicked));
+        restartBtn.addEventListener('click', restartGame);
+
+        function cellClicked() {
+            const row = this.getAttribute('data-row');
+            const col = this.getAttribute('data-col');
+
+            // Impede a jogada se a posição estiver ocupada ou se o jogo acabou
+            if (board[row][col] !== "" || !running) {
+                return;
+            }
+
+            updateCell(this, row, col);
+            checkWinner();
+        }
+
+        function updateCell(cell, row, col) {
+            board[row][col] = currentPlayer; // Atualiza o valor na matriz
+            cell.textContent = currentPlayer; // Atualiza visualmente na tela
+        }
+
+        function changePlayer() {
+            currentPlayer = (currentPlayer === "X") ? "O" : "X";
+            statusText.textContent = `Turno do ${currentPlayer}`;
+        }
+
+        function checkWinner() {
+            let roundWon = false;
+
+            // 1. Verifica Linhas e Colunas usando loops na matriz
+            for (let i = 0; i < 3; i++) {
+                // Verifica se todos os elementos da linha 'i' são iguais e não estão vazios
+                if (board[i][0] !== "" && board[i][0] === board[i][1] && board[i][1] === board[i][2]) {
+                    roundWon = true;
+                }
+                // Verifica se todos os elementos da coluna 'i' são iguais e não estão vazios
+                if (board[0][i] !== "" && board[0][i] === board[1][i] && board[1][i] === board[2][i]) {
+                    roundWon = true;
+                }
+            }
+
+            // 2. Verifica Diagonal Principal
+            if (board[0][0] !== "" && board[0][0] === board[1][1] && board[1][1] === board[2][2]) {
+                roundWon = true;
+            }
+            
+            // Verifica Diagonal Secundária
+            if (board[0][2] !== "" && board[0][2] === board[1][1] && board[1][1] === board[2][0]) {
+                roundWon = true;
+            }
+
+            // Processa o resultado de vitória
+            if (roundWon) {
+                statusText.textContent = `Jogador ${currentPlayer} Venceu!`;
+                running = false;
+                return;
+            }
+
+            // 3. Verifica Empate (Varre as linhas para ver se ainda há alguma célula vazia)
+            let hasEmptyCell = board.some(row => row.includes(""));
+            if (!hasEmptyCell) {
+                statusText.textContent = `Empate!`;
+                running = false;
+            } else {
+                changePlayer(); // Se não ganhou nem empatou, passa a vez
+            }
+        }
+
+        function restartGame() {
+            currentPlayer = "X";
+            // Reseta a matriz para o estado inicial vazio
+            board = [
+                ["", "", ""],
+                ["", "", ""],
+                ["", "", ""]
+            ];
+            statusText.textContent = `Turno do ${currentPlayer}`;
+            cells.forEach(cell => cell.textContent = ""); // Limpa o texto das células na tela
+            running = true;
+        }
+    </script>
+</body>
+</html>
