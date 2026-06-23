@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Atividade 2: Matriz de Frutas</title>
+    
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f7f6;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .container {
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #28a745;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-bottom: 20px;
+        }
+
+        button:hover {
+            background-color: #218838;
+        }
+
+        /* Estilo para mostrar a matriz na tela em formato de tabela */
+        table {
+            margin: 15px auto;
+            border-collapse: collapse;
+        }
+
+        td {
+            width: 100px;
+            height: 50px;
+            text-align: center;
+            font-size: 18px;
+            font-weight: bold;
+            border: 2px solid #ccc;
+            background-color: #fff3cd; /* Cor de fundo leve para as frutas */
+            color: #856404;
+        }
+
+        #resultado-texto {
+            margin-top: 15px;
+            font-size: 16px;
+            color: #555;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h2>Matriz 2x2 de Frutas</h2>
+        <p>Clique no botão para construir a matriz e exibir seus elementos:</p>
+
+        <button onclick="gerarMatrizFrutas()">Exibir Elementos</button>
+
+        <div id="espaco-matriz"></div>
+        
+        <div id="resultado-texto"></div>
+    </div>
+
+    <script>
+        function gerarMatrizFrutas() {
+            // 1. Criamos a matriz 2x2 com nomes de frutas usando arrays do JavaScript
+            let matrizFrutas = [
+                ["Maçã", "Banana"],  // Linha 0
+                ["Uva", "Morango"]   // Linha 1
+            ];
+
+            // 2. Montamos a estrutura da tabela HTML usando os elementos da matriz
+            let tabelaHTML = "<table>" +
+                "<tr>" +
+                    "<td>" + matrizFrutas[0][0] + "</td>" + // Linha 0, Coluna 0
+                    "<td>" + matrizFrutas[0][1] + "</td>" + // Linha 0, Coluna 1
+                "</tr>" +
+                "<tr>" +
+                    "<td>" + matrizFrutas[1][0] + "</td>" + // Linha 1, Coluna 0
+                    "<td>" + matrizFrutas[1][1] + "</td>" + // Linha 1, Coluna 1
+                "</tr>" +
+            "</table>";
+
+            // 3. Colocamos a tabela visual na tela
+            document.getElementById("espaco-matriz").innerHTML = tabelaHTML;
+
+            // 4. Também exibimos todos os elementos em formato de texto linear, como pede o exercício
+            document.getElementById("resultado-texto").innerHTML = 
+                "<strong>Todos os elementos exibidos:</strong><br>" + 
+                matrizFrutas[0][0] + ", " + matrizFrutas[0][1] + ", " + 
+                matrizFrutas[1][0] + ", " + matrizFrutas[1][1];
+        }
+    </script>
+
+</body>
+</html>
