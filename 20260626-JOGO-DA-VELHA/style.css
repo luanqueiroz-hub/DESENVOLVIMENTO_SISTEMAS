@@ -1,0 +1,101 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', Arial, sans-serif;
+    text-align: center;
+    /* Fundo degradê babado em tons de rosa e pêssego */
+    background: linear-gradient(135deg, #ffafbd 0%, #ffc3a0 100%);
+    min-height: 100vh;
+    padding: 20px;
+    color: #4a0e4e;
+}
+
+h1 {
+    margin-bottom: 20px;
+    font-size: 3rem;
+    color: #ff007f;
+    /* Brilho neon suave no título */
+    text-shadow: 2px 2px 4px rgba(255, 0, 127, 0.3), 0 0 10px #fff;
+}
+
+#tabuleiro {
+    width: 315px;
+    margin: 20px auto;
+    display: grid;
+    grid-template-columns: repeat(3, 100px);
+    gap: 8px;
+    background: rgba(255, 255, 255, 0.3);
+    padding: 8px;
+    border-radius: 15px;
+    box-shadow: 0 8px 32px 0 rgba(255, 0, 127, 0.2);
+}
+
+.casa {
+    width: 100px;
+    height: 100px;
+    background: #fff0f5; /* Rosa algodão-doce bem clarinho */
+    border: 3px solid #ff69b4; /* Borda rosa choque */
+    border-radius: 10px;
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    font-size: 50px;
+    font-weight: bold;
+    color: #ff007f;
+    
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+/* Efeito de hover com zoom e brilho neon rosa */
+.casa:hover {
+    background: #ffe4e1;
+    transform: scale(1.05);
+    border-color: #ff1493;
+    box-shadow: 0 0 15px rgba(255, 20, 147, 0.6);
+}
+
+#mensagem {
+    margin: 20px;
+    font-size: 1.4rem;
+    font-weight: bold;
+    color: #db006f;
+    text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.5);
+}
+
+button {
+    padding: 12px 25px;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: 'Poppins', sans-serif;
+    border: none;
+    /* Botão com degradê rosa poderoso */
+    background: linear-gradient(45deg, #ff007f, #ff69b4);
+    color: white;
+    border-radius: 25px;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(255, 0, 127, 0.4);
+    transition: all 0.2s ease;
+}
+
+button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(255, 0, 127, 0.6);
+}
+
+button:active {
+    transform: translateY(1px);
+}
+
+/* Quando alguém ganha, a linha vencedora brilha em arco-íris pastel */
+.vencedora {
+    background: linear-gradient(45deg, #ffadad, #ffd6a5, #fdffb6, #caffbf, #9bf6ff, #a0c4ff, #bdb2ff, #ffc6ff) !important;
+    color: #ffffff;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
