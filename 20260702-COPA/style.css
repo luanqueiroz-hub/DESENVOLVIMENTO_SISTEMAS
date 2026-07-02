@@ -1,0 +1,93 @@
+/* Estilização do corpo da página */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f4f7f6;
+    color: #333;
+    margin: 0;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+/* Título principal */
+h1 {
+    color: #2c3e50;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+/* Div container que centraliza o conteúdo */
+.container {
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    padding: 30px;
+    max-width: 600px;
+    width: 100%;
+}
+
+/* Botão de simulação */
+button {
+    display: block;
+    width: 100%;
+    padding: 12px;
+    background-color: #2ecc71;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.3s;
+    margin-bottom: 25px;
+}
+
+button:hover {
+    background-color: #27ae60;
+}
+
+/* Estrutura da Tabela */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+}
+
+/* Linhas da tabela */
+tr {
+    transition: background 0.2s;
+}
+
+/* Células de dados e de cabeçalho */
+th, td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+th {
+    background-color: #f2f2f2;
+    color: #2c3e50;
+}
+
+/* Classe de destaque para o 1º lugar (Azul) */
+.primeiro-lugar {
+    background-color: #3498db !important;
+    color: white;
+    font-weight: bold;
+}
+
+/* Caixa de texto da previsão do campeão */
+#mensagem-campeao {
+    margin-top: 20px;
+    padding: 15px;
+    background-color: #e8f4fd;
+    border-left: 5px solid #3498db;
+    border-radius: 4px;
+    font-size: 18px;
+    text-align: center;
+    font-weight: bold;
+    display: none; /* Começa escondido */
+}
