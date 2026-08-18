@@ -13,3 +13,12 @@ console.log(cidade);
 let telefone = null;
 console.log(telefone);
 
+let cores = ["amarelo", "branco", "preto"];
+console.log(cores);
+
+let aluno = {
+    nome: "Maria",
+    idade: 22,
+    curso: "Desenvolvimento de Sistemas"
+};
+console.log(aluno);
