@@ -16,8 +16,17 @@ console.log(telefone);
 let cores = ["amarelo", "branco", "preto"];
 console.log(cores);
 
+let cores = ["amarelo", "branco", "preto"];
+console.log(cores[1]);
+
 let aluno = {
     nome: "Maria",
     idade: 22,
     curso: "Desenvolvimento de Sistemas"};
 console.log(aluno);
+
+let aluno = {
+    nome: "Maria",
+    idade: 22,
+    curso: "Desenvolvimento de Sistemas"};
+console.log(aluno.nome);
