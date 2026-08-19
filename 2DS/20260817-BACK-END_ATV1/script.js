@@ -19,6 +19,5 @@ console.log(cores);
 let aluno = {
     nome: "Maria",
     idade: 22,
-    curso: "Desenvolvimento de Sistemas"
-};
+    curso: "Desenvolvimento de Sistemas"};
 console.log(aluno);
