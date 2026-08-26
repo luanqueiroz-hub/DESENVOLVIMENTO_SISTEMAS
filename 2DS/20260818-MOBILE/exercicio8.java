@@ -6,12 +6,14 @@ public class Exercicio8
         String endereco = "Alexandre Cebola, 180";
         String telefone = "41997306937";
         String gostos = "cinema, pedalar, ouvir música";
-        System.out.println(nome);
-        System.out.println(endereco);
-        System.out.println(telefone);
-        System.out.println(gostos);
+        
+        System.out.println("Nome: " + nome);
+        System.out.println("Endereço: " + endereco);
+        System.out.println("Telefone: " + telefone);
+        System.out.println("Gostos: " + gostos);
     }
-    public static void main (String args[])
+
+    public static void main (String args[];)
     {
         new Exercicio8();
     }
