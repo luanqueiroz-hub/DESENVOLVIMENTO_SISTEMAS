@@ -1,4 +1,4 @@
-public class Main {
+public class Exercicio10 {
     public static void main(String[] args) {
     
         String[] dias = {

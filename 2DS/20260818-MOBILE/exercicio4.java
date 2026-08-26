@@ -1,6 +1,6 @@
 public class Exercicio4
 {
-    public Exercicio4 (String[] args) 
+    public static void main (String[] args) 
     {
         double a = 1;
         double b = -5;

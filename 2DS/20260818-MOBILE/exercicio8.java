@@ -13,7 +13,7 @@ public class Exercicio8
         System.out.println("Gostos: " + gostos);
     }
 
-    public static void main (String args[];)
+    public static void main (String[] args)
     {
         new Exercicio8();
     }
