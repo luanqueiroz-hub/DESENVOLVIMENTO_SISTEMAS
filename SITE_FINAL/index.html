@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="no-js">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Portfólio de arquitetura — uma exposição digital de projetos, imagens e filmes.">
+  <meta name="theme-color" content="#eceae5">
+  <title>Nome do Escritório — Architecture</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@75..125,300..800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <script>document.documentElement.classList.remove('no-js');</script>
+</head>
+<body data-page="home">
+  <a class="skip-link" href="#main">Pular para o conteúdo</a>
+
+  <div class="page-curtain" aria-hidden="true"></div>
+  <div class="cursor" aria-hidden="true">
+    <span class="cursor__label"></span>
+  </div>
+
+  <header class="site-header" aria-label="Cabeçalho principal">
+    <a class="brand micro-link" href="#top" aria-label="Voltar ao início" data-brand>Nome do Escritório</a>
+    <div class="site-header__right">
+      <span class="project-counter" aria-hidden="true"><span id="activeProject">01</span> / <span id="totalProjects">06</span></span>
+      <button class="menu-toggle micro-link" type="button" aria-expanded="false" aria-controls="menuOverlay">
+        <span class="menu-toggle__closed">MENU</span>
+        <span class="menu-toggle__open">CLOSE</span>
+      </button>
+    </div>
+  </header>
+
+  <div class="menu-overlay" id="menuOverlay" aria-hidden="true">
+    <div class="menu-overlay__image" aria-hidden="true"></div>
+    <nav class="menu-overlay__nav" aria-label="Navegação principal">
+      <a href="#projects" data-menu-image="0"><span>01</span> Projects</a>
+      <a href="#studio" data-menu-image="2"><span>02</span> Studio</a>
+      <a href="#films" data-menu-image="4"><span>03</span> Films</a>
+      <a href="#contact" data-menu-image="5"><span>04</span> Contact</a>
+    </nav>
+    <div class="menu-overlay__meta micro-copy">
+      <span>ARCHITECTURE</span>
+      <span>CURITIBA — BRAZIL</span>
+      <span>EST. XXXX</span>
+    </div>
+  </div>
+
+  <main id="main">
+    <section class="hero" id="top" aria-labelledby="heroTitle">
+      <div class="hero__media media-shift" data-project-image="0" aria-hidden="true"></div>
+      <div class="hero__veil" aria-hidden="true"></div>
+
+      <div class="hero__meta micro-copy">
+        <span>ARCHITECTURE</span>
+        <span>CURITIBA — BRAZIL</span>
+        <span>EST. XXXX</span>
+      </div>
+
+      <h1 class="hero-title" id="heroTitle" aria-label="Nome do Escritório">
+        <span class="hero-title__clip hero-title__clip--top"><span class="hero-title__word" data-brand-line="0">NOME</span></span>
+        <span class="hero-title__clip hero-title__clip--bottom"><span class="hero-title__word hero-title__word--outline" data-brand-line="1">ESCRITÓRIO</span></span>
+      </h1>
+
+      <div class="hero__scroll micro-copy" aria-hidden="true">
+        <span>SCROLL TO ENTER</span>
+        <span class="hero__line"></span>
+      </div>
+    </section>
+
+    <section class="opening-note section-pad" aria-label="Manifesto">
+      <p class="opening-note__index micro-copy">00 / PROLOGUE</p>
+      <p class="opening-note__statement reveal-words">
+        Arquitetura como matéria, silêncio, luz e movimento. Um arquivo construído para ser visto como exposição — não como catálogo comercial.
+      </p>
+      <p class="opening-note__aside micro-copy">IMAGE &gt; ATMOSPHERE &gt; MOVEMENT<br>TYPE &gt; TEXT</p>
+    </section>
+
+    <section class="projects" id="projects" aria-labelledby="projectsTitle">
+      <div class="projects-head section-pad">
+        <div>
+          <p class="micro-copy">SELECTED WORKS / 2022—2026</p>
+          <h2 id="projectsTitle">Projects</h2>
+        </div>
+        <div class="view-switch" role="group" aria-label="Modo de visualização dos projetos">
+          <button class="view-switch__button is-active" type="button" data-view="gallery">Gallery</button>
+          <button class="view-switch__button" type="button" data-view="index">Index</button>
+        </div>
+      </div>
+
+      <div class="gallery-view" id="galleryView">
+        <article class="project project--monumental" data-project="1">
+          <a class="project__link transition-link" href="pages/project.html?id=1" data-cursor="VIEW" aria-label="Abrir projeto Casa Horizonte">
+            <div class="project__image-wrap distortion-zone">
+              <img class="project__image parallax-image" data-project-image="0" alt="Residência contemporânea em concreto integrada à paisagem" loading="eager">
+            </div>
+            <div class="project__caption project__caption--light">
+              <span>01</span><span>Casa Horizonte</span><span>Curitiba, Brasil</span><span>2026</span>
+            </div>
+          </a>
+        </article>
+
+        <div class="gallery-breath" aria-hidden="true">
+          <span>LIGHT / CONCRETE / VOID</span>
+        </div>
+
+        <article class="project project--small-right" data-project="2">
+          <a class="project__link transition-link" href="pages/project.html?id=2" data-cursor="VIEW" aria-label="Abrir projeto Pavilhão Araucária">
+            <div class="project__image-wrap">
+              <img class="project__image parallax-image" data-project-image="1" alt="Pavilhão minimalista em paisagem aberta" loading="lazy">
+            </div>
+            <div class="project__caption">
+              <span>02</span><span>Pavilhão Araucária</span><span>São Luiz do Purunã, Brasil</span><span>2025</span>
+            </div>
+          </a>
+        </article>
+
+        <section class="project-pair" aria-label="Projetos em destaque">
+          <article class="project project--portrait" data-project="3">
+            <a class="project__link transition-link" href="pages/project.html?id=3" data-cursor="VIEW" aria-label="Abrir projeto Casa Pátio">
+              <div class="project__image-wrap">
+                <img class="project__image parallax-image" data-project-image="2" alt="Interior de casa contemporânea com luz natural" loading="lazy">
+              </div>
+              <div class="project__caption">
+                <span>03</span><span>Casa Pátio</span><span>Curitiba, Brasil</span><span>2024</span>
+              </div>
+            </a>
+          </article>
+
+          <p class="project-pair__text reveal-words">A casa não termina na parede. Ela continua no enquadramento, na sombra e no tempo de quem atravessa.</p>
+
+          <article class="project project--landscape" data-project="4">
+            <a class="project__link transition-link" href="pages/project.html?id=4" data-cursor="VIEW" aria-label="Abrir projeto Edifício Fenda">
+              <div class="project__image-wrap distortion-zone">
+                <img class="project__image parallax-image" data-project-image="3" alt="Edifício de linguagem monolítica e vãos profundos" loading="lazy">
+              </div>
+              <div class="project__caption">
+                <span>04</span><span>Edifício Fenda</span><span>São Paulo, Brasil</span><span>2024</span>
+              </div>
+            </a>
+          </article>
+        </section>
+
+        <article class="project project--cinemascope" data-project="5">
+          <a class="project__link transition-link" href="pages/project.html?id=5" data-cursor="VIEW" aria-label="Abrir projeto Refúgio Serra">
+            <div class="project__image-wrap">
+              <img class="project__image parallax-image" data-project-image="4" alt="Casa horizontal na serra em enquadramento cinematográfico" loading="lazy">
+            </div>
+            <div class="project__caption project__caption--light">
+              <span>05</span><span>Refúgio Serra</span><span>Quatro Barras, Brasil</span><span>2023</span>
+            </div>
+          </a>
+        </article>
+
+        <section class="horizontal-chapter" aria-label="Capítulo horizontal de projetos">
+          <div class="horizontal-chapter__pin">
+            <div class="horizontal-chapter__intro">
+              <span class="micro-copy">CHAPTER 02</span>
+              <p>Objects<br>in space</p>
+            </div>
+            <div class="horizontal-chapter__track">
+              <figure class="horizontal-frame horizontal-frame--tiny">
+                <img data-project-image="5" alt="Detalhe arquitetônico em concreto" loading="lazy">
+                <figcaption>DETAIL / 06A</figcaption>
+              </figure>
+              <figure class="horizontal-frame horizontal-frame--large distortion-zone">
+                <img data-project-image="6" alt="Composição geométrica de arquitetura contemporânea" loading="lazy">
+                <figcaption>STRUCTURE / 06B</figcaption>
+              </figure>
+              <figure class="horizontal-frame horizontal-frame--medium">
+                <img data-project-image="7" alt="Interior contemporâneo com superfícies minerais" loading="lazy">
+                <figcaption>INTERIOR / 06C</figcaption>
+              </figure>
+            </div>
+          </div>
+        </section>
+
+        <article class="project project--final" data-project="6">
+          <a class="project__link transition-link" href="pages/project.html?id=6" data-cursor="VIEW" aria-label="Abrir projeto Casa Monólito">
+            <div class="project__image-wrap distortion-zone">
+              <img class="project__image parallax-image" data-project-image="8" alt="Casa monolítica de concreto e vidro" loading="lazy">
+            </div>
+            <div class="project__caption project__caption--light">
+              <span>06</span><span>Casa Monólito</span><span>Florianópolis, Brasil</span><span>2022</span>
+            </div>
+          </a>
+        </article>
+      </div>
+
+      <div class="index-view section-pad" id="indexView" hidden>
+        <div class="index-view__header micro-copy">
+          <span>No.</span><span>Project</span><span>Place</span><span>Year</span>
+        </div>
+        <div class="index-list" id="indexList"></div>
+        <div class="index-preview" aria-hidden="true"><img alt=""></div>
+      </div>
+    </section>
+
+    <section class="interlude" aria-label="Interlúdio visual">
+      <div class="interlude__media" data-project-image="9" aria-hidden="true"></div>
+      <div class="interlude__type" aria-hidden="true">
+        <span>SPACE</span><span>IS</span><span>TIME</span>
+      </div>
+      <p class="interlude__caption micro-copy">AN EXPERIMENT IN PERCEPTION / 2026</p>
+    </section>
+
+    <section class="films section-pad" id="films" aria-labelledby="filmsTitle">
+      <div class="films__head">
+        <p class="micro-copy">MOVING ARCHITECTURE / 16:9</p>
+        <h2 id="filmsTitle">Films</h2>
+      </div>
+      <button class="film-frame distortion-zone" type="button" data-cursor="PLAY" aria-label="Reproduzir filme Arquitetura em 24 quadros">
+        <img data-project-image="10" alt="Frame de filme arquitetônico com fachada contemporânea" loading="lazy">
+        <span class="film-frame__grain" aria-hidden="true"></span>
+        <span class="film-frame__label micro-copy">FILM 01 — ARCHITECTURE IN 24 FRAMES — 02'18"</span>
+        <span class="film-frame__play">PLAY</span>
+      </button>
+      <div class="films__credits micro-copy">
+        <span>DIRECTION / STUDIO</span>
+        <span>IMAGE / PLACEHOLDER</span>
+        <span>SOUND / SILENCE</span>
+      </div>
+    </section>
+
+    <section class="studio section-pad" id="studio" aria-labelledby="studioTitle">
+      <div class="studio__image-wrap">
+        <img data-project-image="11" alt="Atmosfera de estúdio de arquitetura contemporâneo" loading="lazy">
+      </div>
+      <div class="studio__content">
+        <p class="micro-copy">STUDIO / CURITIBA</p>
+        <h2 id="studioTitle">We build<br>frames for life.</h2>
+        <p class="studio__manifesto">
+          Um estúdio interessado no essencial: proporção, matéria, clima, permanência e o modo como a luz transforma o espaço ao longo do dia.
+        </p>
+        <div class="studio__facts micro-copy">
+          <p><span>BASED</span> CURITIBA — BRAZIL</p>
+          <p><span>PRACTICE</span> ARCHITECTURE / INTERIORS / OBJECTS</p>
+          <p><span>CONTACT</span> STUDIO@EXAMPLE.COM</p>
+        </div>
+      </div>
+    </section>
+
+    <footer class="footer" id="contact">
+      <div class="footer__top section-pad micro-copy">
+        <span>CURITIBA — BRAZIL</span>
+        <a href="mailto:studio@example.com">EMAIL</a>
+        <a href="#">INSTAGRAM</a>
+        <span>© 2026</span>
+      </div>
+      <div class="footer__brand" aria-hidden="true">
+        <span data-brand-line="0">NOME</span>
+        <span data-brand-line="1">ESCRITÓRIO</span>
+      </div>
+    </footer>
+  </main>
+
+  <dialog class="film-modal" id="filmModal" aria-labelledby="filmModalTitle">
+    <button class="film-modal__close" type="button" aria-label="Fechar filme">CLOSE</button>
+    <div class="film-modal__media">
+      <div class="film-modal__placeholder" data-project-image="10">
+        <span id="filmModalTitle">FILM 01</span>
+        <p>Insira seu arquivo em <code>assets/videos/</code> e troque este placeholder por um elemento &lt;video&gt;.</p>
+      </div>
+    </div>
+  </dialog>
+
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.20/dist/lenis.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
