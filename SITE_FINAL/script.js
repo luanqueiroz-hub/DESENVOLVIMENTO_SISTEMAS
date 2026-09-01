@@ -22,45 +22,48 @@ const PROJECTS = [
     name: "Casa Horizonte",
     location: "Curitiba, Brasil",
     year: "2026",
-    image: "https://images.unsplash.com/photo-1780303063301-97c03c636e96?auto=format&fit=crop&w=2200&q=88"
+    image: "https://images.unsplash.com/photo-1773249822619-defdabd4f83c?auto=format&fit=crop&w=2200&q=88"
   },
   {
     id: 2,
     name: "Pavilhão Araucária",
     location: "São Luiz do Purunã, Brasil",
     year: "2025",
-    image: "https://images.unsplash.com/photo-1785589579582-9b02c9fbbf68?auto=format&fit=crop&w=2200&q=88"
+    image: "https://images.unsplash.com/photo-1760623140418-bef4a6a6ebb6?auto=format&fit=crop&w=2200&q=88"
   },
   {
     id: 3,
     name: "Casa Pátio",
     location: "Curitiba, Brasil",
     year: "2024",
-    image: "https://images.unsplash.com/photo-1784131718597-79f188ea973f?auto=format&fit=crop&w=2200&q=88"
+    image: "https://images.unsplash.com/photo-1777730039460-427acdf26284?auto=format&fit=crop&w=2200&q=88"
   },
   {
     id: 4,
     name: "Edifício Fenda",
     location: "São Paulo, Brasil",
     year: "2024",
-    image: "https://images.unsplash.com/photo-1781524391270-063167ee17f4?auto=format&fit=crop&w=2200&q=88"
+    image: "https://images.unsplash.com/photo-1597316469546-549134b9535b?auto=format&fit=crop&w=2200&q=88"
   },
   {
     id: 5,
     name: "Refúgio Serra",
     location: "Quatro Barras, Brasil",
     year: "2023",
-    image: "https://images.unsplash.com/photo-1776851629268-c878a7978c61?auto=format&fit=crop&w=2200&q=88"
+    image: "https://images.unsplash.com/photo-1774021796590-2d06e4b2ed0d?auto=format&fit=crop&w=2200&q=88"
   },
   {
     id: 6,
     name: "Casa Monólito",
     location: "Florianópolis, Brasil",
     year: "2022",
-    image: "https://images.unsplash.com/photo-1772877353868-e2c2f4059202?auto=format&fit=crop&w=2200&q=88"
+    image: "https://images.unsplash.com/photo-1484589703317-ac06479d2e8f?auto=format&fit=crop&w=2200&q=88"
   }
 ];
 
+// Imagens temporarias selecionadas para aproximar o site das referencias do PDF:
+// fotografia arquitetonica abstrata, fachadas ritmadas, sombras, madeira, vidro e concreto.
+// Fontes: Unsplash (uso sob a Unsplash License).
 // A landing page inteira reutiliza estas seis imagens.
 // Para usar fotos locais, troque cada URL por algo como:
 // "assets/images/casa-horizonte.jpg"
