@@ -17,8 +17,8 @@
    ========================================================= */
 
 const SITE = {
-  brand: "NOME DO ESCRITÓRIO",
-  brandLines: ["NOME", "ESCRITÓRIO"]
+  brand: "STUDIO 13.1",
+  brandLines: ["13.1", "STUDIO"]
 };
 
 
