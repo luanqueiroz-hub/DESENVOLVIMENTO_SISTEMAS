@@ -12,9 +12,16 @@
    ========================================================= */
 
 const SITE = {
-  brand: "STUDIO 13.1",
-  brandLines: ["STUDIO", "13.1"]
+  brand: "NOME DO ESCRITÓRIO",
+  brandLines: ["NOME", "ESCRITÓRIO"]
 };
+
+/*
+  Se suas imagens estiverem em .png, troque para "png"
+  Se estiverem em .jpg, troque para "jpg"
+*/
+const IMAGE_EXTENSION = "jpg";
+const image = (number) => `assets/images/${number}.${IMAGE_EXTENSION}`;
 
 const PROJECTS = [
   {
@@ -22,51 +29,86 @@ const PROJECTS = [
     name: "Casa Horizonte",
     location: "Curitiba, Brasil",
     year: "2026",
-    image: "https://images.unsplash.com/photo-1773249822619-defdabd4f83c?auto=format&fit=crop&w=2200&q=88"
+    image: image(1)
   },
   {
     id: 2,
     name: "Pavilhão Araucária",
     location: "São Luiz do Purunã, Brasil",
     year: "2025",
-    image: "https://images.unsplash.com/photo-1760623140418-bef4a6a6ebb6?auto=format&fit=crop&w=2200&q=88"
+    image: image(5)
   },
   {
     id: 3,
     name: "Casa Pátio",
     location: "Curitiba, Brasil",
     year: "2024",
-    image: "https://images.unsplash.com/photo-1777730039460-427acdf26284?auto=format&fit=crop&w=2200&q=88"
+    image: image(6)
   },
   {
     id: 4,
     name: "Edifício Fenda",
     location: "São Paulo, Brasil",
     year: "2024",
-    image: "https://images.unsplash.com/photo-1597316469546-549134b9535b?auto=format&fit=crop&w=2200&q=88"
+    image: image(7)
   },
   {
     id: 5,
     name: "Refúgio Serra",
     location: "Quatro Barras, Brasil",
     year: "2023",
-    image: "https://images.unsplash.com/photo-1774021796590-2d06e4b2ed0d?auto=format&fit=crop&w=2200&q=88"
+    image: image(8)
   },
   {
     id: 6,
     name: "Casa Monólito",
     location: "Florianópolis, Brasil",
     year: "2022",
-    image: "https://images.unsplash.com/photo-1484589703317-ac06479d2e8f?auto=format&fit=crop&w=2200&q=88"
+    image: image(12)
   }
 ];
 
-// Imagens temporarias selecionadas para aproximar o site das referencias do PDF:
-// fotografia arquitetonica abstrata, fachadas ritmadas, sombras, madeira, vidro e concreto.
-// Fontes: Unsplash (uso sob a Unsplash License).
-// A landing page inteira reutiliza estas seis imagens.
-// Para usar fotos locais, troque cada URL por algo como:
-// "assets/images/casa-horizonte.jpg"
+/*
+  CURADORIA VISUAL
+  0  = hero + projeto 01
+  1  = projeto 02
+  2  = projeto 03
+  3  = projeto 04
+  4  = projeto 05
+  5  = horizontal tiny
+  6  = horizontal large
+  7  = horizontal medium
+  8  = projeto final
+  9  = interlude
+  10 = films
+  11 = studio
+*/
+const VISUAL_POOL = [
+  image(1),
+  image(5),
+  image(6),
+  image(7),
+  image(8),
+  image(9),
+  image(10),
+  image(11),
+  image(12),
+  image(13),
+  image(17),
+  image(21)
+];
+
+/*
+  Sequências lentas para deixar o site mais vivo e cinematográfico.
+  Elas não quebram o layout: só fazem algumas áreas “respirarem”.
+*/
+const IMAGE_SEQUENCES = {
+  hero: [image(1), image(2), image(3), image(4)],
+  interlude: [image(13), image(14), image(15), image(16)],
+  film: [image(17), image(18), image(19), image(20)],
+  studio: [image(21), image(22), image(23), image(24)],
+  menu: [image(25), image(26), image(27), image(28), image(29), image(30)]
+};
 const VISUAL_POOL = PROJECTS.map((project) => project.image);
 
 const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
@@ -143,26 +185,48 @@ function setupMenu() {
   const menuImage = document.querySelector(".menu-overlay__image");
   if (!toggle || !menu) return;
 
+  const defaultMenuImage = IMAGE_SEQUENCES.menu[4] || IMAGE_SEQUENCES.menu[0];
+
   const openMenu = () => {
     document.body.classList.add("menu-open");
     toggle.setAttribute("aria-expanded", "true");
     menu.setAttribute("aria-hidden", "false");
+
+    if (menuImage) {
+      menuImage.style.backgroundImage = `url("${resolveAsset(defaultMenuImage)}")`;
+    }
   };
+
   const closeMenu = () => {
     document.body.classList.remove("menu-open");
     toggle.setAttribute("aria-expanded", "false");
     menu.setAttribute("aria-hidden", "true");
   };
-  toggle.addEventListener("click", () => document.body.classList.contains("menu-open") ? closeMenu() : openMenu());
-  document.addEventListener("keydown", (event) => { if (event.key === "Escape") closeMenu(); });
 
-  if (menuImage) menuImage.style.backgroundImage = `url("${resolveAsset(VISUAL_POOL[0])}")`;
+  toggle.addEventListener("click", () => {
+    document.body.classList.contains("menu-open") ? closeMenu() : openMenu();
+  });
+
+  document.addEventListener("keydown", (event) => {
+    if (event.key === "Escape") closeMenu();
+  });
+
+  if (menuImage) {
+    menuImage.style.backgroundImage = `url("${resolveAsset(defaultMenuImage)}")`;
+  }
+
   menu.querySelectorAll("[data-menu-image]").forEach((link) => {
     link.addEventListener("mouseenter", () => {
       if (!menuImage) return;
-      const i = Number(link.dataset.menuImage || 0) % VISUAL_POOL.length;
-      menuImage.style.backgroundImage = `url("${resolveAsset(VISUAL_POOL[i])}")`;
+      const i = Number(link.dataset.menuImage || 0) % IMAGE_SEQUENCES.menu.length;
+      menuImage.style.backgroundImage = `url("${resolveAsset(IMAGE_SEQUENCES.menu[i])}")`;
     });
+
+    link.addEventListener("mouseleave", () => {
+      if (!menuImage) return;
+      menuImage.style.backgroundImage = `url("${resolveAsset(defaultMenuImage)}")`;
+    });
+
     link.addEventListener("click", closeMenu);
   });
 }
@@ -183,6 +247,47 @@ function setupDistortionZones() {
       visual.style.filter = "";
     });
   });
+}
+
+function setVisualSource(element, source) {
+  if (!element || !source) return;
+  const resolved = resolveAsset(source);
+
+  if (element.tagName === "IMG") {
+    element.src = resolved;
+  } else {
+    element.style.backgroundImage = `url("${resolved}")`;
+  }
+}
+
+function startVisualSequence(selector, sequence, interval = 5200) {
+  const element = document.querySelector(selector);
+  if (!element || !sequence || !sequence.length) return;
+
+  setVisualSource(element, sequence[0]);
+
+  if (reducedMotion || sequence.length < 2) return;
+
+  element.style.transition = "opacity 0.8s ease";
+  let index = 0;
+
+  setInterval(() => {
+    element.style.opacity = "0.88";
+
+    setTimeout(() => {
+      index = (index + 1) % sequence.length;
+      setVisualSource(element, sequence[index]);
+      element.style.opacity = "1";
+    }, 260);
+  }, interval);
+}
+
+function setupAmbientGalleries() {
+  startVisualSequence(".hero__media", IMAGE_SEQUENCES.hero, 5600);
+  startVisualSequence(".interlude__media", IMAGE_SEQUENCES.interlude, 5000);
+  startVisualSequence(".film-frame img", IMAGE_SEQUENCES.film, 4600);
+  startVisualSequence(".film-modal__placeholder", IMAGE_SEQUENCES.film, 4600);
+  startVisualSequence(".studio__image-wrap img", IMAGE_SEQUENCES.studio, 6200);
 }
 
 function setupFilmModal() {
@@ -377,6 +482,7 @@ function addMotionUtilityStyles() {
 function init() {
   fillBrand();
   applyVisualPool();
+  setupAmbientGalleries();
   addMotionUtilityStyles();
   setupSmoothScroll();
   setupMenu();
