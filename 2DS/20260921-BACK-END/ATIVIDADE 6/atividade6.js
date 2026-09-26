@@ -168,13 +168,13 @@ function atividade10(){
 
 // ATIVAAAAAAAAAAAAAAAAAR A ATIVIDADEEEEEEEEEEEEEEEEE
 
-atividade1()
-// atividade2()
-// atividade3()
-// atividade4()
-// atividade5()
-// atividade6()
-// atividade7()
-// atividade8()
-// atividade9()
-// atividade10()
+//atividade1()
+//atividade2()
+//atividade3()
+//atividade4()
+//atividade5()
+//atividade6()
+//atividade7()
+//atividade8()
+//atividade9()
+//atividade10()
