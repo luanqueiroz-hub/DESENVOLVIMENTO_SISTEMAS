@@ -1,3 +1,5 @@
+// SISTEMA DE GERENCIAMENTO DE NOTAS 
+
 let alunos = [];
 
 function calcularmedia(n1, n2, n3) {
