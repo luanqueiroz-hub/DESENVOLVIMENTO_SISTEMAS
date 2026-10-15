@@ -1,0 +1,155 @@
+/* Configurações Gerais */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    min-height: 100vh;
+    padding: 24px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Inter', sans-serif;
+    background-color: #000000; /* Preto profundo de fundo */
+    color: #FFFFFF; /* Branco para os textos principais */
+    overflow-x: hidden;
+}
+
+/* Container Principal Avançado */
+.container {
+    width: 100%;
+    max-width: 380px;
+    padding: 48px 32px;
+    text-align: center;
+    background: #121212; /* Preto fosco para o card */
+    border-radius: 28px;
+    position: relative;
+    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.8), 
+                0 0 50px rgba(226, 11, 0, 0.05); /* Brilho vermelho sutil ao fundo */
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+/* Efeito de Borda Neon Fina e Elegante ao passar o mouse na Box */
+.container::before {
+    content: '';
+    position: absolute;
+    top: -1px; left: -1px; right: -1px; bottom: -1px;
+    border-radius: 29px;
+    background: linear-gradient(135deg, #E20B00, transparent, #ffffff, transparent);
+    z-index: -1;
+    opacity: 0.4;
+    transition: opacity 0.4s ease;
+}
+
+.container:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 40px 80px rgba(0, 0, 0, 0.9), 
+                0 0 60px rgba(226, 11, 0, 0.15);
+}
+
+.container:hover::before {
+    opacity: 1;
+}
+
+/* Header do Perfil */
+.perfil-header {
+    margin-bottom: 36px;
+}
+
+.foto-perfil {
+    width: 115px;
+    height: 115px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 2px solid #E20B00; /* Linha cirúrgica vermelha */
+    padding: 4px; /* Espaço entre a foto e a borda vermelha */
+    background: #121212;
+    box-shadow: 0 10px 25px rgba(226, 11, 0, 0.25);
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.container:hover .foto-perfil {
+    transform: scale(1.05) rotate(-3deg);
+    border-color: #FFFFFF; /* A borda muda para branco no foco do card */
+    box-shadow: 0 10px 25px rgba(255, 255, 255, 0.2);
+}
+
+/* Título */
+h1 {
+    margin: 20px 0 6px;
+    color: #FFFFFF; /* Branco Puro */
+    font-size: 26px;
+    font-weight: 700;
+    letter-spacing: -0.5px;
+}
+
+/* Descrição */
+.descricao {
+    color: #888888; /* Cinza elegante de apoio */
+    font-size: 14px;
+    font-weight: 400;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* Links das Redes Sociais */
+.redes-sociais {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+.redes-sociais a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    padding: 16px 24px;
+    color: #FFFFFF;
+    background-color: #1A1A1A; /* Botão quase preto */
+    font-size: 15px;
+    font-weight: 600;
+    border-radius: 16px;
+    text-decoration: none;
+    border: 1px solid #262626; /* Borda discreta */
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+/* Ícones */
+.redes-sociais a i {
+    font-size: 18px;
+    color: #E20B00; /* Ícones começam vermelhos */
+    transition: color 0.3s ease;
+}
+
+/* Interação Avançada nos Botões (Inversão de Cores) */
+.redes-sociais a:hover {
+    background-color: #E20B00; /* Botão explode em vermelho */
+    color: #FFFFFF; /* Texto continua branco */
+    border-color: #E20B00;
+    transform: translateX(4px); /* Deslocamento lateral moderno em vez de subir */
+    box-shadow: 0 8px 24px rgba(226, 11, 0, 0.35);
+}
+
+.redes-sociais a:hover i {
+    color: #FFFFFF; /* Ícone fica branco no hover */
+}
+
+.redes-sociais a:active {
+    transform: translateX(1px);
+}
+
+/* Acessibilidade por Teclado */
+.redes-sociais a:focus-visible {
+    outline: 2px solid #FFFFFF;
+    outline-offset: 3px;
+}
+
+/* Ajuste para Telas Pequenas */
+@media (max-width: 360px) {
+    .container {
+        padding: 36px 20px;
+    }
+}

@@ -1,24 +1,103 @@
+
+/* Configuracoes gerais */
+* {
+    box-sizing: border-box;
+}
+
 body {
+    margin: 0;
+    min-height: 100vh;
+    padding: 24px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     font-family: Arial, sans-serif;
-    background-color: rgb(248, 0, 0);
+    background-color: #19a8ea;
+    color: #0f2a43;
+}
+
+/* Container principal */
+.container {
+    width: 100%;
+    max-width: 420px;
+    padding: 32px 24px;
     text-align: center;
-    padding-top: 50px;
+    background: linear-gradient(135deg, #7dd3fc, #0284c7);
+    border-radius: 16px;
+    box-shadow: 0 6px 22px rgba(15, 42, 67, 0.12);
 }
 
-h1 { 
-    color: #ffffff;
-    margin-bottom: 20px;
-}
-
-img {
+/* Foto de perfil */
+.foto-perfil {
     width: 120px;
     height: 120px;
     object-fit: cover;
-    border-radius: 90%;
+    border-radius: 50%;
+    border: 3px solid #dbe7f3;
 }
 
-p {
-    color: #ffffff;
+/* Titulo */
+h1 {
+    margin: 18px 0 8px;
+    color: #0f2a43;
+    font-size: 28px;
+}
+
+/* Descricao */
+.descricao {
+    margin: 0 0 24px;
+    color: #526579;
     font-size: 16px;
-    margin-top: 15px;
+}
+
+/* Links das redes sociais */
+.redes-sociais {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.redes-sociais a {
+    display: inline-flex;
+    align-items: center;
+    gap: 9px;
+    padding: 11px 16px;
+    color: #ffffff;
+    background-color: #0f2a43;
+    border-radius: 8px;
+    text-decoration: none;
+    transition: background-color 0.2s, transform 0.2s;
+}
+
+/* Tamanho dos icones */
+.redes-sociais a i {
+    font-size: 20px;
+}
+
+/* Efeito ao passar o mouse */
+.redes-sociais a:hover {
+    background-color: #245b86;
+    transform: translateY(-2px);
+}
+
+/* Acessibilidade pelo teclado */
+.redes-sociais a:focus-visible {
+    outline: 3px solid #78b7f0;
+    outline-offset: 3px;
+}
+
+/* Responsividade */
+@media (max-width: 360px) {
+    .container {
+        padding: 24px 16px;
+    }
+
+    .redes-sociais {
+        flex-direction: column;
+    }
+
+    .redes-sociais a {
+        justify-content: center;
+    }
 }
