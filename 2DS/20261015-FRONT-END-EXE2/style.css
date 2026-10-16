@@ -1,0 +1,98 @@
+/* Reset padrão de estilos */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', sans-serif; /* Fonte moderna usada por startups e marcas premium */
+    background-color: #E9FF7F; /* Fundo cinza claro neutro e limpo */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+/* Container principal estruturado */
+.cardapio-card {
+    background-color: #ffffff;
+    width: 100%;
+    max-width: 480px;
+    border-radius: 16px;
+    padding: 40px 32px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05); /* Sombra suave e realista */
+    border-top: 8px solid #3dc2de; /* Sua cor 3: Azul delimitando o topo com sofisticação */
+}
+
+/* Cabeçalho alinhado e elegante */
+.cardapio-header {
+    text-align: center;
+    margin-bottom: 36px;
+}
+
+.cardapio-header h1 {
+    color: #3DC2DE;
+    font-size: 1.75rem;
+    font-weight: 700;
+    letter-spacing: -0.5px;
+    margin-bottom: 6px;
+}
+
+.cardapio-header p {
+    color: #64748b;
+    font-size: 0.9rem;
+    font-weight: 400;
+}
+
+/* Estrutura dos itens do menu */
+.item {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 16px 0;
+    border-bottom: 1px dashed #e2e8f0; /* Divisória fina e elegante */
+}
+
+.item:last-child {
+    border-bottom: none; /* Remove a linha do último item */
+}
+
+/* Alinhamento do texto à esquerda */
+.item-detalhes {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    padding-right: 16px;
+}
+
+.nome-produto {
+    color: #0f172a;
+    font-weight: 500;
+    font-size: 1.05rem;
+}
+
+/* Descrição menor em tom neutro (estilo restaurante premium) */
+.descricao {
+    color: #64748b;
+    font-size: 0.85rem;
+    line-height: 1.4;
+}
+
+/* Preço limpo com destaque em cor sutil */
+.preco {
+    color: #0f172a;
+    font-weight: 700;
+    font-size: 1.05rem;
+    white-space: nowrap; /* Impede o preço de quebrar de linha */
+    background-color: #e9ff7f; /* Sua cor 1: Amarelo usado como "marca-texto" bem sutil no preço */
+    padding: 2px 8px;
+    border-radius: 4px;
+}
+
+/* Detalhe interativo minimalista */
+.item:hover .nome-produto {
+    color: #3dc2de; /* O título do produto assume o azul ao passar o mouse */
+    transition: color 0.2s ease;
+}
