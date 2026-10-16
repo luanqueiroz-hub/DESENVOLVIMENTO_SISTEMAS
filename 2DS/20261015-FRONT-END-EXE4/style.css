@@ -1,0 +1,102 @@
+/* Reset com fundo escuro dramático para destacar o neon */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Space Grotesk', sans-serif; /* Fonte ousada e futurista */
+    background-color: #0b0c10; /* Fundo preto profundo */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+/* O Card de Login com muita atitude */
+.login-card {
+    background-color: #12131a; /* Cinza quase preto */
+    width: 100%;
+    max-width: 360px;
+    padding: 40px 30px;
+    border: 3px solid #ff15af; /* Sua cor 2: Borda inicial em Rosa Choque */
+    border-radius: 20px;
+    box-shadow: 0px 0px 25px rgba(255, 21, 175, 0.15); /* Brilho neon rosa sutil */
+}
+
+/* Título imponente em caixa alta */
+.brand-title {
+    color: #2DFF14;
+    font-size: 1.8rem;
+    font-weight: 700;
+    text-align: center;
+    letter-spacing: 1px;
+    margin-bottom: 35px;
+}
+
+/* Grupos de Input */
+.input-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-bottom: 24px;
+}
+
+/* Labels afiadas */
+label {
+    color: #2DFF14;
+    font-size: 0.9rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+/* Estilo padrão do Input */
+input {
+    width: 100%;
+    padding: 14px 16px;
+    background-color: #1a1c24;
+    border: 2px solid #2d2f39;
+    border-radius: 10px;
+    color: #ffffff;
+    font-size: 1rem;
+    font-family: inherit;
+    transition: all 0.25s ease;
+}
+
+/* O Efeito :focus (A estrela do seu slide) */
+input:focus {
+    outline: none;
+    border-color: #2dff14; /* Sua cor 1: Ativa o Verde Elétrico ao clicar */
+    background-color: #132414; /* Leve fundo esverdeado */
+    box-shadow: 0px 0px 15px rgba(45, 255, 20, 0.4); /* Brilho neon intenso */
+}
+
+/* Placeholder discreto */
+input::placeholder {
+    color: #4e5366;
+}
+
+/* Botão de impacto usando o Rosa #FF15AF */
+.btn-entrar {
+    width: 100%;
+    padding: 16px;
+    background-color: #ff15af;
+    color: #000000; /* Texto preto para legibilidade e contraste brutal */
+    border: none;
+    border-radius: 10px;
+    font-size: 1.1rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+    cursor: pointer;
+    margin-top: 10px;
+    transition: all 0.2s ease;
+}
+
+/* Interação no Botão */
+.btn-entrar:hover {
+    background-color: #2dff14; /* Troca para o Verde no hover: Puro contraste */
+    box-shadow: 0px 0px 20px rgba(45, 255, 20, 0.6);
+    transform: scale(1.02);
+}
