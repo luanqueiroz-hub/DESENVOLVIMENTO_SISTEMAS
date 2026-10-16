@@ -1,0 +1,95 @@
+/* Reset estrutural */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: #659EB9; /* Fundo geral da página claro e limpo */
+    min-height: 100vh;
+}
+
+/* Envoltório da barra para criar uma linha de marcação sutil abaixo do menu */
+.navbar-wrapper {
+    background-color: #2A414C; /* Sua cor 4: O azul mais escuro e sóbrio como base */
+    border-bottom: 1px solid #3c5e6e; /* Sua cor 3: Linha divisória técnica refinada */
+    width: 100%;
+}
+
+/* O Menu de Navegação Flexbox (Evolução direta do seu slide) */
+.navbar {
+    display: flex;
+    justify-content: space-between; /* Distribui logo, links e botão nas pontas */
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 16px 24px; /* Espaçamento profissional respirável */
+}
+
+/* Estilo do Logo corporativo */
+.nav-logo {
+    color: #ffffff;
+    font-weight: 600;
+    font-size: 1.1rem;
+    letter-spacing: 1px;
+}
+
+/* Bloco que agrupa os links idêntico à lógica do slide */
+.nav-links {
+    display: flex;
+    gap: 32px; /* Espaço elegante entre os links */
+}
+
+/* Estilo dos itens de texto do menu */
+.nav-item {
+    color: #a8fbbc; /* Cor neutra clara para o estado normal (alta legibilidade) */
+    color: rgba(255, 255, 255, 0.75);
+    text-decoration: none;
+    font-size: 0.95rem;
+    font-weight: 500;
+    padding: 6px 0;
+    position: relative;
+    transition: color 0.2s ease;
+}
+
+/* Efeito :hover sério e sofisticado */
+.nav-item:hover {
+    color: #659eb9; /* Sua cor 1: Transição suave para o azul mais claro */
+}
+
+/* Estado Ativo (Página onde o usuário está no momento) */
+.nav-item.active {
+    color: #ffffff;
+}
+
+/* Linha indicadora sutil sob o item ativo */
+.nav-item.active::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: #538196; /* Sua cor 2: Destaca o item selecionado */
+    border-radius: 2px;
+}
+
+/* Botão de ação executivo */
+.btn-primary {
+    background-color: #538196; /* Sua cor 2: Azul médio profissional */
+    color: #ffffff;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 6px;
+    font-family: inherit;
+    font-size: 0.9rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.btn-primary:hover {
+    background-color: #659eb9; /* Sua cor 1: Clarea levemente ao interagir */
+}
