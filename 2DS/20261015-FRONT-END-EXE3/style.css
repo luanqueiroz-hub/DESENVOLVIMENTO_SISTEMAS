@@ -1,0 +1,96 @@
+/* Configuração e Reset Geral */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: #FFCA00; /* Fundo neutro para destacar o produto */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+/* O Cartão de Produto */
+.card {
+    background-color: #ffffff;
+    width: 260px;
+    padding: 16px;
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+/* Efeito :hover com feedback visual */
+.card:hover {
+    transform: translateY(-4px); /* Suave elevação */
+    box-shadow: 0 12px 24px rgba(0, 17, 255, 0.08); /* Sombra suave usando um tom do seu azul #0011FF */
+    border-color: rgba(0, 17, 255, 0.2);
+}
+
+/* Configuração corrigida para a imagem do produto */
+.product-image {
+    width: 100%;
+    height: 160px;
+    object-fit: cover; /* Recorta a imagem perfeitamente sem amassar ou distorcer */
+    border-radius: 8px;
+}
+
+/* Bloco de textos */
+.product-info {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+/* Uso do Amarelo #FFCA00 */
+.tag-destaque {
+    background-color: #ffca00; 
+    color: #000000;
+    font-size: 0.7rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    padding: 3px 8px;
+    border-radius: 4px;
+    align-self: flex-start;
+    letter-spacing: 0.5px;
+}
+
+/* Título do Produto */
+.card h3 {
+    color: #0f172a;
+    font-size: 1.15rem;
+    font-weight: 600;
+}
+
+/* Preço do Produto */
+.preco {
+    color: #475569;
+    font-size: 1rem;
+    font-weight: 500;
+}
+
+/* Botão utilizando o Azul #0011FF */
+.btn {
+    background-color: #0011ff;
+    color: #ffffff;
+    border: none;
+    padding: 12px;
+    border-radius: 8px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+    width: 100%;
+}
+
+/* Interação no botão */
+.btn:hover {
+    background-color: #000cd1; /* Azul levemente mais escuro para feedback visual */
+}
