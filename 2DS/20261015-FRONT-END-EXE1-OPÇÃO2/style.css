@@ -1,0 +1,148 @@
+/* Configurações Gerais */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    min-height: 100vh;
+    padding: 24px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Inter', sans-serif;
+    
+    /* FUNDO MARCANTE: Degradê dramático idêntico ao que estava na caixa antiga */
+    background: linear-gradient(135deg, #e20b00 0%, #111111 45%, #ffffff 85%, #b50900 100%);
+    background-size: 150% 150%;
+    background-attachment: fixed;
+    
+    color: #FFFFFF;
+    overflow-x: hidden;
+}
+
+/* Container Principal (A Caixa) */
+.container {
+    width: 100%;
+    max-width: 380px;
+    padding: 48px 32px;
+    text-align: center;
+    
+    /* COR FIXA ULTRA-SÓLIDA: Preto fosco premium para destacar totalmente do fundo */
+    background-color: #0b0b0d; 
+    border: 1px solid rgba(255, 255, 255, 0.15); /* Linha cirúrgica para a caixa saltar na tela */
+    border-radius: 28px;
+    position: relative;
+    
+    /* Sombra pesada para isolar a caixa do degradê brilhante de trás */
+    box-shadow: 0 40px 100px rgba(0, 0, 0, 0.95), 
+                0 0 40px rgba(0, 0, 0, 0.8);
+    transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.4s ease;
+}
+
+.container:hover {
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: 0 50px 120px rgba(0, 0, 0, 0.98), 
+                0 0 30px rgba(255, 255, 255, 0.2);
+}
+
+/* Header do Perfil */
+.perfil-header {
+    margin-bottom: 36px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.foto-perfil {
+    width: 115px;
+    height: 115px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 3px solid #E20B00; 
+    padding: 4px; 
+    background: #0b0b0d;
+    box-shadow: 0 10px 25px rgba(226, 11, 0, 0.4);
+    transition: all 0.4s ease;
+}
+
+.container:hover .foto-perfil {
+    transform: scale(1.08) rotate(-3deg);
+    border-color: #FFFFFF;
+    box-shadow: 0 10px 30px rgba(255, 255, 255, 0.4);
+}
+
+/* Título */
+h1 {
+    margin: 20px 0 6px;
+    color: #FFFFFF;
+    font-size: 26px;
+    font-weight: 700;
+    letter-spacing: -0.5px;
+}
+
+/* Descrição */
+.descricao {
+    color: #E20B00; 
+    font-size: 14px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+/* Links das Redes Sociais */
+.redes-sociais {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    width: 100%;
+}
+
+.redes-sociais a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    padding: 16px 24px;
+    color: #FFFFFF;
+    background-color: #16161a; 
+    font-size: 15px;
+    font-weight: 600;
+    border-radius: 16px;
+    text-decoration: none;
+    border: 1px solid #282830;
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+/* Ícones */
+.redes-sociais a i {
+    font-size: 18px;
+    color: #E20B00; 
+    transition: color 0.3s ease;
+}
+
+/* Interação nos Botões */
+.redes-sociais a:hover {
+    background-color: #E20B00; 
+    color: #FFFFFF; 
+    border-color: #E20B00;
+    transform: translateX(6px); 
+    box-shadow: 0 8px 24px rgba(226, 11, 0, 0.5);
+}
+
+.redes-sociais a:hover i {
+    color: #FFFFFF; 
+}
+
+.redes-sociais a:active {
+    transform: translateX(2px);
+}
+
+/* Ajuste para Telas Pequenas */
+@media (max-width: 360px) {
+    .container {
+        padding: 36px 20px;
+    }
+}
