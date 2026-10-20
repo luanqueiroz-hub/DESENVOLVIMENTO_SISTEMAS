@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Verificador de Idade</title>
+
+    <!-- Fonte Inter para um visual moderno e limpo -->
+    <link rel="preconnect" href="https://googleapis.com">
+    <link rel="preconnect" href="https://gstatic.com" crossorigin>
+    <link href="https://googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        /* Estilos gerais da página */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            
+            /* FUNDO CHAMATIVO: Degradê marcante usando a sua paleta de cores */
+            background: linear-gradient(135deg, #008282 0%, #005E5E 50%, #003636 100%);
+            background-attachment: fixed;
+            
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        /* Cartão principal */
+        .container {
+            /* COR FIXA BRANCA: Destaca-se perfeitamente contra o fundo escuro/ciano */
+            background-color: #FFFFFF;
+            width: 100%;
+            max-width: 360px;
+            padding: 40px 30px;
+            border-radius: 24px;
+            text-align: center;
+
+            /* Sombra profunda para dar efeito de profundidade sobre o degradê */
+            box-shadow: 0 20px 40px rgba(0, 54, 54, 0.4), 
+                        0 10px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .container:hover {
+            transform: translateY(-4px);
+        }
+
+        /* Título */
+        h1 {
+            color: #003636;
+            font-size: 26px;
+            font-weight: 700;
+            margin-bottom: 8px;
+            letter-spacing: -0.5px;
+        }
+
+        /* Texto explicativo */
+        p {
+            color: #005E5E;
+            font-size: 14px;
+            font-weight: 400;
+            margin-bottom: 20px;
+        }
+
+        /* Campo de idade */
+        input {
+            width: 100%;
+            padding: 14px 16px;
+            margin-bottom: 16px;
+            border: 2px solid rgba(0, 94, 94, 0.15);
+            background-color: #FAFAFA;
+            border-radius: 12px;
+            font-size: 16px;
+            font-family: inherit;
+            color: #003636;
+            outline: none;
+            transition: all 0.3s ease;
+        }
+
+        input:focus {
+            background-color: #FFFFFF;
+            border-color: #008282;
+            box-shadow: 0 0 0 4px rgba(0, 130, 130, 0.15);
+        }
+
+        /* Botão */
+        button {
+            width: 100%;
+            padding: 14px;
+            background-color: #005E5E;
+            color: #FFFFFF;
+            border: none;
+            border-radius: 12px;
+            font-size: 16px;
+            font-weight: 600;
+            font-family: inherit;
+            cursor: pointer;
+            box-shadow: 0 4px 12px rgba(0, 94, 94, 0.25);
+            transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+        }
+
+        /* Efeito ao passar o mouse no botão */
+        button:hover {
+            background-color: #003636;
+            box-shadow: 0 6px 16px rgba(0, 54, 54, 0.35);
+            transform: translateY(-2px);
+        }
+
+        button:active {
+            transform: translateY(0);
+        }
+
+        /* Resultado */
+        #resultado {
+            margin-top: 24px;
+            margin-bottom: 0;
+            font-size: 18px;
+            font-weight: 700;
+            padding: 12px;
+            border-radius: 10px;
+            transition: all 0.3s ease;
+        }
+
+        #resultado:empty {
+            display: none;
+        }
+
+        .maior {
+            color: #005E5E;
+            background-color: rgba(0, 94, 94, 0.08);
+            border: 1px solid rgba(0, 94, 94, 0.15);
+        }
+
+        .menor {
+            color: #008282;
+            background-color: rgba(0, 130, 130, 0.08);
+            border: 1px solid rgba(0, 130, 130, 0.15);
+        }
+
+        .erro {
+            color: #b91c1c;
+            background-color: #fef2f2;
+            border: 1px solid #fee2e2;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <h1>Verificador de idade</h1>
+        <p>Digite sua idade para continuar.</p>
+
+        <input
+            type="number"
+            id="idade"
+            placeholder="Sua idade"
+            min="0"
+            step="1"
+        >
+
+        <button onclick="verificarIdade()">
+            Verificar idade
+        </button>
+
+        <p id="resultado" aria-live="polite"></p>
+    </div>
+
+    <script>
+        function verificarIdade() {
+            const idade = document.getElementById("idade").value;
+            const resultado = document.getElementById("resultado");
+
+            resultado.className = "";
+
+            if (idade.trim() === "" ||
+                !Number.isInteger(Number(idade)) ||
+                Number(idade) < 0) {
+
+                resultado.textContent = "Digite uma idade válida.";
+                resultado.classList.add("erro");
+
+            } else if (Number(idade) >= 18) {
+
+                resultado.textContent = "Maior de idade";
+                resultado.classList.add("maior");
+
+            } else {
+
+                resultado.textContent = "Menor de idade";
+                resultado.classList.add("menor");
+
+            }
+        }
+    </script>
+
+</body>
+</html>
