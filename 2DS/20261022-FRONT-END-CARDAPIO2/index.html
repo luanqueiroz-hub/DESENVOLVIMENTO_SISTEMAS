@@ -1,0 +1,777 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="description"
+          content="Conheça o cardápio do Caldo do Bagaço. Caldo de cana fresquinho, sabores especiais e pastel da casa.">
+
+    <meta name="theme-color" content="#173B2C">
+
+    <title>Caldo do Bagaço | Cardápio</title>
+
+    <!-- Fonte Google -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+          rel="stylesheet">
+
+    <style>
+
+        /* ==============================
+           1. CONFIGURAÇÕES GERAIS
+        ============================== */
+
+        :root {
+            --verde-escuro: #173B2C;
+            --verde-medio: #315F43;
+            --verde-claro: #EAF3DF;
+            --verde-preco: #E4F3A4;
+
+            --branco: #FFFFFF;
+            --fundo-cardapio: #F7F9F5;
+
+            --texto: #202C26;
+            --texto-secundario: #66756D;
+
+            --borda: #E4EAE3;
+
+            --sombra-container:
+                0 24px 70px rgba(0, 0, 0, 0.25);
+
+            --sombra-card:
+                0 8px 24px rgba(25, 57, 38, 0.04);
+
+            --transicao: 0.25s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', Arial, sans-serif;
+            color: var(--texto);
+            min-height: 100vh;
+
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+
+            padding: 48px 20px;
+
+            /* IMAGEM DE FUNDO */
+            background-color: var(--verde-escuro);
+
+            background-image:
+                linear-gradient(
+                    135deg,
+                    rgba(8, 28, 17, 0.68),
+                    rgba(10, 32, 20, 0.55)
+                ),
+                url('images/fundo.png');
+
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+        }
+
+        /* ==============================
+           2. CONTAINER PRINCIPAL
+        ============================== */
+
+        .cardapio-container {
+            width: 100%;
+            max-width: 500px;
+
+            background: var(--fundo-cardapio);
+
+            border-radius: 26px;
+            overflow: hidden;
+
+            border: 1px solid rgba(255, 255, 255, 0.6);
+
+            box-shadow: var(--sombra-container);
+        }
+
+        /* ==============================
+           3. CAPA DO CARDÁPIO
+        ============================== */
+
+        .cardapio-cover {
+            position: relative;
+
+            min-height: 250px;
+
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-end;
+
+            padding: 36px 24px;
+
+            text-align: center;
+            color: var(--branco);
+
+            background-image:
+                linear-gradient(
+                    to bottom,
+                    rgba(0, 0, 0, 0.05) 10%,
+                    rgba(10, 30, 17, 0.85) 100%
+                ),
+                url('images/capa.png');
+
+            background-size: cover;
+            background-position: center;
+        }
+
+        .badge-menu {
+            display: inline-block;
+
+            padding: 7px 16px;
+            margin-bottom: 14px;
+
+            border-radius: 100px;
+
+            background: rgba(255, 255, 255, 0.18);
+            border: 1px solid rgba(255, 255, 255, 0.35);
+
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+
+            font-size: 0.68rem;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        .cardapio-cover h1 {
+            font-size: clamp(1.9rem, 5vw, 2.4rem);
+            font-weight: 800;
+            line-height: 1.15;
+            letter-spacing: -1.2px;
+
+            text-shadow: 0 2px 12px rgba(0, 0, 0, 0.25);
+        }
+
+        .cardapio-cover p {
+            margin-top: 12px;
+
+            max-width: 340px;
+
+            font-size: 0.84rem;
+            line-height: 1.6;
+
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        /* ==============================
+           4. CONTEÚDO DO CARDÁPIO
+        ============================== */
+
+        .cardapio-content {
+            padding: 30px 24px 22px;
+        }
+
+        .menu-section + .menu-section {
+            margin-top: 34px;
+        }
+
+        .section-header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+
+            margin-bottom: 18px;
+        }
+
+        .section-header h2 {
+            font-size: 0.77rem;
+            font-weight: 800;
+
+            color: var(--verde-medio);
+
+            text-transform: uppercase;
+            letter-spacing: 1.8px;
+            white-space: nowrap;
+        }
+
+        .section-line {
+            height: 1px;
+            flex: 1;
+
+            background: var(--borda);
+        }
+
+        .section-description {
+            margin: -8px 0 18px;
+
+            font-size: 0.82rem;
+            color: var(--texto-secundario);
+            line-height: 1.5;
+        }
+
+        /* ==============================
+           5. CARDS DOS PRODUTOS
+        ============================== */
+
+        .lista-produtos {
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+        }
+
+        .item-card {
+            display: flex;
+            align-items: stretch;
+
+            min-height: 132px;
+
+            overflow: hidden;
+
+            background: var(--branco);
+            border: 1px solid var(--borda);
+            border-radius: 16px;
+
+            box-shadow: var(--sombra-card);
+
+            transition:
+                transform var(--transicao),
+                box-shadow var(--transicao),
+                border-color var(--transicao);
+        }
+
+        .item-card:hover {
+            transform: translateY(-3px);
+
+            border-color: #B5D4B5;
+
+            box-shadow:
+                0 12px 28px rgba(25, 57, 38, 0.1);
+        }
+
+        /* ==============================
+           6. IMAGEM DOS PRODUTOS
+        ============================== */
+
+        .item-image {
+            width: 125px;
+            min-width: 125px;
+
+            object-fit: cover;
+            object-position: center;
+
+            background: var(--verde-claro);
+        }
+
+        /* ==============================
+           7. INFORMAÇÕES DOS PRODUTOS
+        ============================== */
+
+        .item-info {
+            flex: 1;
+            min-width: 0;
+
+            display: flex;
+            flex-direction: column;
+
+            padding: 16px;
+        }
+
+        .nome-produto {
+            font-size: 0.96rem;
+            font-weight: 700;
+            line-height: 1.4;
+
+            letter-spacing: -0.25px;
+
+            color: var(--texto);
+        }
+
+        .descricao {
+            margin-top: 6px;
+
+            font-size: 0.77rem;
+            line-height: 1.55;
+
+            color: var(--texto-secundario);
+        }
+
+        .item-footer {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 8px;
+
+            margin-top: auto;
+            padding-top: 13px;
+        }
+
+        /* ==============================
+           8. VOLUME E PREÇO
+        ============================== */
+
+        .volume {
+            display: inline-block;
+
+            font-size: 0.7rem;
+            font-weight: 600;
+
+            color: var(--verde-medio);
+
+            background: var(--verde-claro);
+
+            padding: 5px 9px;
+            border-radius: 6px;
+        }
+
+        .preco {
+            display: inline-block;
+
+            padding: 7px 11px;
+
+            border-radius: 8px;
+
+            background: var(--verde-preco);
+
+            color: var(--verde-escuro);
+
+            font-size: 0.86rem;
+            font-weight: 800;
+            letter-spacing: -0.2px;
+
+            white-space: nowrap;
+        }
+
+        .preco-consulta {
+            background: #F0F3EE;
+
+            color: var(--verde-medio);
+
+            font-size: 0.72rem;
+        }
+
+        /* ==============================
+           9. PASTEL ESPECIAL
+        ============================== */
+
+        .item-card.destaque {
+            border-color: #C9DDB9;
+        }
+
+        .selo-especial {
+            display: inline-block;
+
+            margin-bottom: 7px;
+
+            font-size: 0.65rem;
+            font-weight: 700;
+
+            text-transform: uppercase;
+            letter-spacing: 1px;
+
+            color: var(--verde-medio);
+        }
+
+        /* ==============================
+           10. RODAPÉ
+        ============================== */
+
+        .cardapio-footer {
+            padding: 22px 24px 28px;
+
+            text-align: center;
+
+            border-top: 1px solid var(--borda);
+
+            background: #F1F5ED;
+        }
+
+        .footer-titulo {
+            font-size: 0.82rem;
+            font-weight: 700;
+
+            color: var(--verde-escuro);
+        }
+
+        .footer-descricao {
+            margin-top: 7px;
+
+            font-size: 0.75rem;
+            line-height: 1.6;
+
+            color: var(--texto-secundario);
+        }
+
+        /* ==============================
+           11. RESPONSIVIDADE
+        ============================== */
+
+        @media (max-width: 600px) {
+
+            body {
+                padding: 20px 12px;
+
+                background-attachment: scroll;
+            }
+
+            .cardapio-container {
+                border-radius: 22px;
+            }
+
+            .cardapio-cover {
+                min-height: 220px;
+                padding: 30px 18px;
+            }
+
+            .cardapio-content {
+                padding: 24px 16px;
+            }
+
+            .item-image {
+                width: 110px;
+                min-width: 110px;
+            }
+
+            .item-info {
+                padding: 13px;
+            }
+
+            .nome-produto {
+                font-size: 0.88rem;
+            }
+
+            .descricao {
+                font-size: 0.74rem;
+            }
+
+            .preco {
+                font-size: 0.79rem;
+            }
+        }
+
+        @media (max-width: 360px) {
+
+            .item-image {
+                width: 94px;
+                min-width: 94px;
+            }
+
+            .item-info {
+                padding: 11px;
+            }
+
+            .item-footer {
+                align-items: flex-start;
+                flex-direction: column;
+                gap: 7px;
+            }
+
+            .nome-produto {
+                font-size: 0.83rem;
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+
+            html {
+                scroll-behavior: auto;
+            }
+
+            .item-card {
+                transition: none;
+            }
+
+            .item-card:hover {
+                transform: none;
+            }
+        }
+
+    </style>
+</head>
+
+<body>
+
+    <main class="cardapio-container">
+
+        <!-- ==============================
+             CAPA PRINCIPAL
+        ============================== -->
+
+        <header class="cardapio-cover">
+
+            <span class="badge-menu">
+                Nosso Cardápio
+            </span>
+
+            <h1>Caldo do Bagaço</h1>
+
+            <p>
+                O sabor da tradição em cada gole.
+                Refrescância e qualidade para você.
+            </p>
+
+        </header>
+
+
+        <!-- ==============================
+             CORPO DO CARDÁPIO
+        ============================== -->
+
+        <div class="cardapio-content">
+
+
+            <!-- SEÇÃO 1 - BEBIDAS -->
+
+            <section class="menu-section"
+                     aria-labelledby="titulo-bebidas">
+
+                <div class="section-header">
+
+                    <h2 id="titulo-bebidas">
+                        Caldos de Cana
+                    </h2>
+
+                    <span class="section-line"></span>
+
+                </div>
+
+                <p class="section-description">
+                    Sabores refrescantes preparados com
+                    caldo de cana extraído na hora.
+                </p>
+
+                <div class="lista-produtos">
+
+
+                    <!-- PRODUTO 1 - TRADICIONAL -->
+
+                    <article class="item-card">
+
+                        <img
+                            class="item-image"
+                            src="images/trad.png"
+                            alt="Copo de caldo de cana tradicional gelado"
+                            width="125"
+                            height="132"
+                            loading="lazy"
+                        >
+
+                        <div class="item-info">
+
+                            <h3 class="nome-produto">
+                                Caldo de Cana Tradicional
+                            </h3>
+
+                            <p class="descricao">
+                                O sabor autêntico da cana-de-açúcar.
+                                Puro, gelado e extraído na hora.
+                            </p>
+
+                            <div class="item-footer">
+
+                                <span class="volume">
+                                    300 ml
+                                </span>
+
+                                <span class="preco">
+                                    R$ 60,00
+                                </span>
+
+                            </div>
+
+                        </div>
+
+                    </article>
+
+
+                    <!-- PRODUTO 2 - LIMÃO -->
+
+                    <article class="item-card">
+
+                        <img
+                            class="item-image"
+                            src="images/limao.png"
+                            alt="Caldo de cana gelado com limão fresco"
+                            width="125"
+                            height="132"
+                            loading="lazy"
+                        >
+
+                        <div class="item-info">
+
+                            <h3 class="nome-produto">
+                                Caldo de Cana com Limão
+                            </h3>
+
+                            <p class="descricao">
+                                A doçura natural da cana combinada
+                                com o toque cítrico e refrescante
+                                do limão.
+                            </p>
+
+                            <div class="item-footer">
+
+                                <span class="volume">
+                                    500 ml
+                                </span>
+
+                                <span class="preco">
+                                    R$ 80,00
+                                </span>
+
+                            </div>
+
+                        </div>
+
+                    </article>
+
+
+                    <!-- PRODUTO 3 - ABACAXI -->
+
+                    <article class="item-card">
+
+                        <img
+                            class="item-image"
+                            src="images/abacaxi.png"
+                            alt="Caldo de cana com abacaxi fresco"
+                            width="125"
+                            height="132"
+                            loading="lazy"
+                        >
+
+                        <div class="item-info">
+
+                            <h3 class="nome-produto">
+                                Caldo de Cana com Abacaxi
+                            </h3>
+
+                            <p class="descricao">
+                                Uma combinação tropical da
+                                doçura da cana com o sabor
+                                marcante e refrescante do abacaxi.
+                            </p>
+
+                            <div class="item-footer">
+
+                                <span class="volume">
+                                    500 ml
+                                </span>
+
+                                <span class="preco">
+                                    R$ 90,00
+                                </span>
+
+                            </div>
+
+                        </div>
+
+                    </article>
+
+
+                </div>
+
+            </section>
+
+
+            <!-- ==============================
+                 SEÇÃO 2 - PASTEL
+            ============================== -->
+
+            <section class="menu-section"
+                     aria-labelledby="titulo-pastel">
+
+                <div class="section-header">
+
+                    <h2 id="titulo-pastel">
+                        Especial da Casa
+                    </h2>
+
+                    <span class="section-line"></span>
+
+                </div>
+
+                <div class="lista-produtos">
+
+
+                    <!-- PRODUTO 4 - PASTEL ESPECIAL -->
+
+                    <article class="item-card destaque">
+
+                        <img
+                            class="item-image"
+                            src="images/pastel.png"
+                            alt="Pastel especial dourado e crocante"
+                            width="125"
+                            height="132"
+                            loading="lazy"
+                        >
+
+                        <div class="item-info">
+
+                            <span class="selo-especial">
+                                Especialidade da Casa
+                            </span>
+
+                            <h3 class="nome-produto">
+                                Pastel Especial
+                            </h3>
+
+                            <p class="descricao">
+                                Massa dourada e crocante,
+                                com recheio generoso e muito
+                                sabor. O acompanhamento perfeito
+                                para o seu caldo de cana.
+                            </p>
+
+                            <div class="item-footer">
+
+                                <span class="preco preco-consulta">
+                                    Consulte o valor
+                                </span>
+
+                            </div>
+
+                        </div>
+
+                    </article>
+
+
+                </div>
+
+            </section>
+
+        </div>
+
+
+        <!-- ==============================
+             RODAPÉ
+        ============================== -->
+
+        <footer class="cardapio-footer">
+
+            <p class="footer-titulo">
+                Caldo do Bagaço
+            </p>
+
+            <p class="footer-descricao">
+                Frescor, tradição e sabor em cada momento.
+            </p>
+
+        </footer>
+
+    </main>
+
+</body>
+</html>

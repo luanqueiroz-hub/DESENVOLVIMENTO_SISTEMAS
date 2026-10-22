@@ -1,0 +1,326 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cardápio | Caldo do Bagaço</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --verde: #244734;
+            --verde-claro: #E9F2DF;
+            --amarelo: #F5D77B;
+            --creme: #FAF8F1;
+            --texto: #243329;
+            --cinza: #718075;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 40px 16px;
+            background: linear-gradient(rgba(10,30,15,.55), rgba(10,30,15,.75)),
+                        url('images/fundo.png') center/cover fixed;
+        }
+
+        /* CARDÁPIO PRINCIPAL */
+        .cardapio {
+            width: 100%;
+            max-width: 480px;
+            background: var(--creme);
+            border-radius: 24px;
+            overflow: hidden;
+            box-shadow: 0 25px 60px rgba(0,0,0,.35);
+        }
+
+        /* CAPA */
+        .capa {
+            height: 230px;
+            background: linear-gradient(transparent, rgba(10,30,15,.85)),
+                        url('images/capa.png') center/cover;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            align-items: center;
+            padding: 30px 20px;
+            text-align: center;
+            color: white;
+        }
+
+        .capa span {
+            background: var(--amarelo);
+            color: var(--verde);
+            padding: 7px 18px;
+            border-radius: 30px;
+            font-size: 11px;
+            font-weight: 800;
+            letter-spacing: 2px;
+            margin-bottom: 12px;
+        }
+
+        .capa h1 {
+            font-size: 30px;
+            font-weight: 800;
+            letter-spacing: -1px;
+            text-transform: uppercase;
+        }
+
+        .capa p {
+            margin-top: 8px;
+            font-size: 12px;
+            color: #E6F0E5;
+        }
+
+        /* LISTA DE PRODUTOS */
+        .conteudo {
+            padding: 26px 22px;
+        }
+
+        .titulo-secao {
+            font-size: 12px;
+            color: var(--verde);
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin: 4px 0 15px;
+        }
+
+        .item {
+            display: flex;
+            align-items: stretch;
+            min-height: 130px;
+            background: white;
+            border: 1px solid #E5E9DF;
+            border-radius: 16px;
+            overflow: hidden;
+            margin-bottom: 14px;
+            transition: .25s ease;
+        }
+
+        .item:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(36,71,52,.12);
+            border-color: #B5CDAE;
+        }
+
+        /* IMAGENS DOS PRODUTOS */
+        .foto {
+            position: relative;
+            flex: 0 0 120px;
+            min-height: 130px;
+            overflow: hidden;
+            background: var(--verde-claro);
+        }
+
+        .foto img {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            transition: transform .3s ease;
+        }
+
+        .item:hover .foto img {
+            transform: scale(1.05);
+        }
+
+        /* ENQUADRAMENTO INDIVIDUAL */
+        .img-trad {
+            object-position: 52% 50%;
+        }
+
+        .img-limao {
+            object-position: 50% 42%;
+        }
+
+        .img-abacaxi {
+            object-position: 55% 45%;
+        }
+
+        .img-pastel {
+            object-position: 50% 38%;
+        }
+
+        /* INFORMAÇÕES DOS PRODUTOS */
+        .info {
+            flex: 1;
+            min-width: 0;
+            padding: 14px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .info h3 {
+            color: var(--texto);
+            font-size: 14px;
+            font-weight: 700;
+            line-height: 1.4;
+        }
+
+        .info p {
+            color: var(--cinza);
+            font-size: 11px;
+            line-height: 1.5;
+            margin-top: 5px;
+        }
+
+        .preco {
+            align-self: flex-end;
+            margin-top: auto;
+            padding: 7px 12px;
+            background: var(--amarelo);
+            color: var(--verde);
+            border-radius: 8px;
+            font-size: 13px;
+            font-weight: 800;
+            white-space: nowrap;
+        }
+
+        .info p + .preco {
+            margin-top: 12px;
+        }
+
+        /* RODAPÉ */
+        footer {
+            background: var(--verde);
+            color: #E6F0E5;
+            text-align: center;
+            padding: 18px;
+            font-size: 11px;
+            line-height: 1.6;
+        }
+
+        /* RESPONSIVIDADE */
+        @media (max-width: 400px) {
+            body {
+                padding: 20px 10px;
+                background-attachment: scroll;
+            }
+
+            .conteudo {
+                padding: 20px 14px;
+            }
+
+            .foto {
+                flex-basis: 105px;
+            }
+
+            .info {
+                padding: 11px;
+            }
+
+            .info h3 {
+                font-size: 13px;
+            }
+
+            .capa h1 {
+                font-size: 26px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <main class="cardapio">
+
+        <!-- CAPA -->
+        <header class="capa">
+            <span>MENU ESPECIAL</span>
+            <h1>Caldo do Bagaço</h1>
+            <p>Naturalmente fresco, irresistivelmente saboroso.</p>
+        </header>
+
+        <div class="conteudo">
+
+            <h2 class="titulo-secao">Nossos Caldos</h2>
+
+            <!-- CALDO TRADICIONAL -->
+            <article class="item">
+                <div class="foto">
+                    <img class="img-trad"
+                         src="images/trad.png"
+                         alt="Caldo de Cana Tradicional">
+                </div>
+
+                <div class="info">
+                    <h3>Caldo de Cana Tradicional</h3>
+                    <p>O sabor puro da cana, gelado e extraído na hora. (300 ml)</p>
+                    <span class="preco">R$ 60,00</span>
+                </div>
+            </article>
+
+            <!-- CALDO COM LIMÃO -->
+            <article class="item">
+                <div class="foto">
+                    <img class="img-limao"
+                         src="images/limao.png"
+                         alt="Caldo de Cana com Limão">
+                </div>
+
+                <div class="info">
+                    <h3>Caldo de Cana com Limão</h3>
+                    <p>A doçura da cana com o toque cítrico e refrescante do limão. (500 ml)</p>
+                    <span class="preco">R$ 80,00</span>
+                </div>
+            </article>
+
+            <!-- CALDO COM ABACAXI -->
+            <article class="item">
+                <div class="foto">
+                    <img class="img-abacaxi"
+                         src="images/abacaxi.png"
+                         alt="Caldo de Cana com Abacaxi">
+                </div>
+
+                <div class="info">
+                    <h3>Caldo de Cana com Abacaxi</h3>
+                    <p>Uma combinação tropical, doce e refrescante. (500 ml)</p>
+                    <span class="preco">R$ 90,00</span>
+                </div>
+            </article>
+
+            <!-- SEÇÃO DE PASTÉIS -->
+            <h2 class="titulo-secao" style="margin-top: 28px;">
+                Especial da Casa
+            </h2>
+
+            <!-- PASTEL ESPECIAL -->
+            <article class="item">
+                <div class="foto">
+                    <img class="img-pastel"
+                         src="images/pastel.png"
+                         alt="Pastel Especial da Casa">
+                </div>
+
+                <div class="info">
+                    <h3>Pastel Especial da Casa</h3>
+                    <p>Massa dourada e crocante, com recheio generoso. Perfeito para acompanhar seu caldo!</p>
+                    <span class="preco">Sob consulta</span>
+                </div>
+            </article>
+
+        </div>
+
+        <!-- RODAPÉ -->
+        <footer>
+            <strong>CALDO DO BAGAÇO</strong>
+            <p>Tradição, frescor e sabor em cada gole.</p>
+        </footer>
+
+    </main>
+
+</body>
+</html>
