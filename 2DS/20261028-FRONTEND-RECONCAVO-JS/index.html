@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Recôncavo | Cozinha Baiana</title>
+
+    <!-- Fontes do Google -->
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
+    <!-- Arquivo CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <header class="topo">
+        <div class="topo-conteudo">
+            <p class="assinatura">Cozinha baiana</p>
+            <h1>Recôncavo</h1>
+            <p class="lema">Sabores do dendê, do coco e do mar da Bahia</p>
+        </div>
+        <div class="faixa" aria-hidden="true"></div>
+    </header>
+
+    <main class="cardapio">
+
+        <div class="cardapio-titulo">
+            <h2>Cardápio</h2>
+            <p>Receitas tradicionais, preparadas na hora com ingredientes frescos.</p>
+        </div>
+
+
+        <div class="resumo">
+            <span id="itens">0 itens</span>
+            <span id="total">Total: R$ 0,00</span>
+            <button id="limpar">Limpar pedido</button>
+            <button id="ver-carrinho" class="btn-carrinho">Ver Carrinho</button>
+        </div>
+
+        <div class="filtros">
+            <button class="filtro ativo" data-categoria="Todos">Todos</button>
+            <button class="filtro" data-categoria="Entrada">Entradas</button>
+            <button class="filtro" data-categoria="Prato principal">Pratos</button>
+            <button class="filtro" data-categoria="Sobremesa">Sobremesas</button>
+        </div>
+
+        <div class="lista">
+
+            <article class="item" data-preco="14.00">
+                <div class="container-foto">
+                    <img src="img/acaraje.jpg" alt="Acarajé" class="foto-img">
+                </div>
+                <div class="detalhes">
+                    <p class="categoria">Entrada</p>
+                    <div class="linha">
+                        <h3>Acarajé</h3>
+                        <span class="pontilhado" aria-hidden="true"></span>
+                        <span class="preco">R$ 14,00</span>
+                    </div>
+                    <p class="descricao">Bolinho de feijão-fradinho frito no azeite de dendê, recheado com vatapá, caruru, camarão seco e vinagrete.</p>
+                    <button class="btn-pedir">Pedir</button>
+                </div>
+            </article>
+
+            <article class="item" data-preco="48.00">
+                <div class="container-foto">
+                    <img src="img/moqueca.jpg" alt="Moqueca baiana" class="foto-img">
+                </div>
+                <div class="detalhes">
+                    <p class="categoria">Prato principal</p>
+                    <div class="linha">
+                        <h3>Moqueca baiana</h3>
+                        <span class="pontilhado" aria-hidden="true"></span>
+                        <span class="preco">R$ 48,00</span>
+                    </div>
+                    <p class="descricao">Peixe fresco cozido no leite de coco e dendê, com pimentões, tomate e coentro. Acompanha arroz e pirão.</p>
+                    <button class="btn-pedir">Pedir</button>
+                </div>
+            </article>
+
+            <article class="item" data-preco="42.00">
+                <div class="container-foto">
+                    <img src="img/bobo3.jpg" alt="Bobó de camarão" class="foto-img">
+                </div>
+                <div class="detalhes">
+                    <p class="categoria">Prato principal</p>
+                    <div class="linha">
+                        <h3>Bobó de camarão</h3>
+                        <span class="pontilhado" aria-hidden="true"></span>
+                        <span class="preco">R$ 42,00</span>
+                    </div>
+                    <p class="descricao">Creme aveludado de aipim com camarões, leite de coco e azeite de dendê. Acompanha arroz branco.</p>
+                    <button class="btn-pedir">Pedir</button>
+                </div>
+            </article>
+
+            <article class="item" data-preco="8.00">
+                <div class="container-foto">
+                    <img src="img/cocada3.jpg" alt="Cocada cremosa" class="foto-img">
+                </div>
+                <div class="detalhes">
+                    <p class="categoria">Sobremesa</p>
+                    <div class="linha">
+                        <h3>Cocada cremosa</h3>
+                        <span class="pontilhado" aria-hidden="true"></span>
+                        <span class="preco">R$ 8,00</span>
+                    </div>
+                    <p class="descricao">Coco fresco em calda dourada, cozida no tacho até ficar macia e cremosa.</p>
+                    <button class="btn-pedir">Pedir</button>
+                </div>
+            </article>
+
+        </div>
+
+    </main>
+
+    <footer class="rodape">
+        <p class="rodape-nome">Recôncavo</p>
+        <p>Cozinha baiana feita com tempero de casa</p>
+    </footer>
+
+    <script src="script.js"></script>
+
+</body>
+</html>

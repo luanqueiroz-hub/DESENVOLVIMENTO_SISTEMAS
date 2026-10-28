@@ -1,0 +1,354 @@
+/* =========================================================
+   Recôncavo | Cozinha Baiana
+   Visual sofisticado: azul-profundo, dendê e tons de areia
+   ========================================================= */
+
+:root {
+    --azul:     #12263A;   /* azul profundo do mar */
+    --azul-2:   #1C3A55;
+    --dende:    #01030c;   /* laranja do dendê */
+    --ouro:     #D9A441;   /* dourado suave */
+    --fundo:    #f1a20e;   /* branco quente */
+    --linha:    #E4DCCF;
+    --texto:    #2B2B2B;
+    --suave:    #000208;
+
+    --titulo: "Cormorant Garamond", Georgia, serif;
+    --corpo:  "Inter", "Segoe UI", sans-serif;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: var(--corpo);
+    color: var(--texto);
+    background-color: var(--fundo);
+    /* Tag de Imagem de Fundo para o site todo */
+    /*background-image: url('img/azulejos.jpg');
+    /*opacity: 0.5; /* 50% de transparência */
+    background-repeat: no-repeat;
+    background-position: center top;
+    background-size: cover;
+    background-attachment: fixed;
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+}
+
+/* ---------------------------------------------------------
+   TOPO
+   --------------------------------------------------------- */
+.topo {
+    position: relative;
+    text-align: center;
+    color: #fff;
+    background:
+        radial-gradient(ellipse at 50% 0%, rgba(226, 123, 44, .28), transparent 60%),
+        linear-gradient(180deg, var(--azul) 0%, var(--azul-2) 100%);
+    
+    
+}
+
+.topo-conteudo {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 96px 24px 88px;
+}
+
+.assinatura {
+    font-family: var(--titulo);
+    font-style: italic;
+    font-size: 1.35rem;
+    color: var(--ouro);
+}
+
+.topo h1 {
+    margin: 4px 0 14px;
+    font-family: var(--titulo);
+    font-weight: 600;
+    font-size: clamp(3.4rem, 12vw, 6rem);
+    line-height: 1;
+    letter-spacing: .02em;
+}
+
+.lema {
+    max-width: 38ch;
+    margin: 0 auto;
+    font-size: 1.02rem;
+    font-weight: 400;
+    color: rgba(255, 255, 255, .78);
+}
+
+/* Faixa geométrica inspirada em azulejos */
+.faixa {
+    height: 14px;
+    background:
+        linear-gradient(135deg, var(--dende) 25%, transparent 25%) -7px 0 / 14px 14px,
+        linear-gradient(225deg, var(--dende) 25%, transparent 25%) -7px 0 / 14px 14px,
+        linear-gradient(315deg, var(--ouro) 25%, transparent 25%) 0 0 / 14px 14px,
+        linear-gradient(45deg, var(--ouro) 25%, transparent 25%) 0 0 / 14px 14px,
+        var(--azul);
+}
+
+/* ---------------------------------------------------------
+   CARDÁPIO
+   --------------------------------------------------------- */
+.cardapio {
+    max-width: 1040px;
+    margin: 0 auto;
+    padding: 80px 24px 96px;
+}
+
+.cardapio-titulo {
+    max-width: 520px;
+    margin: 0 auto 64px;
+    text-align: center;
+}
+
+.cardapio-titulo h2 {
+    font-family: var(--titulo);
+    font-weight: 600;
+    font-size: clamp(2.2rem, 6vw, 3rem);
+    color: var(--azul);
+}
+
+.cardapio-titulo h2::after {
+    content: "";
+    display: block;
+    width: 56px;
+    height: 3px;
+    margin: 14px auto 18px;
+    background: var(--dende);
+}
+
+.cardapio-titulo p {
+    color: var(--suave);
+}
+
+.lista {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 56px 48px;
+}
+
+/* ---------------------------------------------------------
+   ITEM & FOTOS
+   --------------------------------------------------------- */
+.container-foto {
+    position: relative;
+    aspect-ratio: 4 / 3;
+    border-radius: 4px;
+    overflow: hidden;
+    box-shadow: 0 18px 40px -20px rgba(18, 38, 58, .55);
+}
+
+.foto-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+/* Moldura fina interna decorativa por cima da foto */
+.container-foto::after {
+    content: "";
+    position: absolute;
+    inset: 10px;
+    border: 1px solid rgba(255, 255, 255, .45);
+    border-radius: 2px;
+    pointer-events: none;
+}
+
+.detalhes {
+    padding-top: 22px;
+}
+
+.categoria {
+    margin-bottom: 4px;
+    font-family: var(--titulo);
+    font-style: italic;
+    font-size: 1.1rem;
+    color: var(--dende);
+}
+
+.linha {
+    display: flex;
+    align-items: baseline;
+    gap: 12px;
+}
+
+.linha h3 {
+    font-family: var(--titulo);
+    font-weight: 700;
+    font-size: 1.75rem;
+    line-height: 1.2;
+    color: var(--azul);
+}
+
+.pontilhado {
+    flex: 1;
+    min-width: 20px;
+    border-bottom: 2px dotted var(--linha);
+    transform: translateY(-4px);
+}
+
+.preco {
+    font-weight: 600;
+    font-size: 1.05rem;
+    color: var(--azul);
+    white-space: nowrap;
+}
+
+.descricao {
+    margin-top: 8px;
+    max-width: 46ch;
+    font-size: .96rem;
+    color: var(--suave);
+}
+
+/* ---------------------------------------------------------
+   RODAPÉ
+   --------------------------------------------------------- */
+.rodape {
+    padding: 48px 24px;
+    text-align: center;
+    color: rgba(255, 255, 255, .72);
+    font-size: .95rem;
+    background: var(--azul);
+    border-top: 4px solid var(--dende);
+}
+
+.rodape-nome {
+    margin-bottom: 4px;
+    font-family: var(--titulo);
+    font-size: 1.8rem;
+    font-weight: 600;
+    color: #fff;
+}
+
+/* ---------------------------------------------------------
+   TELAS PEQUENAS
+   --------------------------------------------------------- */
+@media (max-width: 760px) {
+    .topo-conteudo {
+        padding: 72px 20px 64px;
+    }
+
+    .cardapio {
+        padding: 56px 20px 72px;
+    }
+
+    .cardapio-titulo {
+        margin-bottom: 44px;
+    }
+
+    .lista {
+        grid-template-columns: 1fr;
+        gap: 44px;
+    }
+}
+
+/* ---------------------------------------------------------
+   INTERATIVIDADE (JavaScript)
+   --------------------------------------------------------- */
+.resumo {
+    position: sticky;
+    top: 12px;
+    z-index: 10;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    margin-bottom: 28px;
+    padding: 14px 20px;
+    border-radius: 4px;
+    color: #fff;
+    font-weight: 600;
+    background: var(--azul);
+    box-shadow: 0 10px 24px -12px rgba(18, 38, 58, .6);
+}
+
+#limpar {
+    padding: 6px 14px;
+    border: 1px solid var(--ouro);
+    border-radius: 4px;
+    color: var(--ouro);
+    font-family: var(--corpo);
+    background: transparent;
+    cursor: pointer;
+}
+
+.filtros {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 48px;
+}
+
+.filtro {
+    padding: 8px 20px;
+    border: 2px solid var(--azul);
+    border-radius: 999px;
+    color: var(--azul);
+    font-family: var(--corpo);
+    font-weight: 600;
+    background: transparent;
+    cursor: pointer;
+}
+
+.filtro.ativo {
+    color: #fff;
+    background: var(--azul);
+}
+
+.btn-pedir {
+    margin-top: 14px;
+    padding: 10px 22px;
+    border: none;
+    border-radius: 4px;
+    color: #fff;
+    font-family: var(--corpo);
+    font-weight: 600;
+    background: var(--azul);
+    cursor: pointer;
+}
+
+.btn-pedir.pedido {
+    color: var(--azul);
+    background: var(--ouro);
+}
+
+.item.oculto {
+    display: none;
+}
+
+.resumo {
+    display: flex;
+    flex-wrap: wrap; /* Permite que o botão quebre para a linha de baixo */
+    gap: 15px;
+    align-items: center;
+}
+
+.btn-carrinho {
+    width: 100%; /* Faz o botão ocupar toda a largura abaixo dos outros itens */
+    margin-top: 10px;
+    padding: 12px;
+    background-color: var(--azul);
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-family: var(--corpo);
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.btn-carrinho:hover {
+    background-color: var(--azul-2);
+}
+
