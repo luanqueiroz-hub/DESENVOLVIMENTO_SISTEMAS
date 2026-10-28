@@ -1,0 +1,565 @@
+
+/* =========================================================
+   RECÔNCAVO | COZINHA BAIANA — EDIÇÃO EDITORIAL
+   Paleta inspirada no Pelourinho, no dendê e no Recôncavo
+   Mantém a estrutura original do HTML.
+   ========================================================= */
+
+:root {
+    /* As cinco cores oficiais */
+    --dende: #F2AF29;
+    --pimenta: #BF2604;
+    --pelo: #127BC2;
+    --coentro: #27733C;
+    --palha: #F2E6CE;
+
+    /* Neutros de apoio para leitura e contraste */
+    --papel: #FFF9EF;
+    --texto: #302820;
+    --suave: #695D50;
+    --linha: #D9C9A9;
+
+    /* Fontes originais */
+    --titulo: "Cormorant Garamond", Georgia, serif;
+    --corpo: "Inter", "Segoe UI", sans-serif;
+}
+
+/* RESET */
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    min-width: 320px;
+    overflow-x: clip;
+    font-family: var(--corpo);
+    color: var(--texto);
+    background: var(--palha);
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+}
+
+/* =========================================================
+   CABEÇALHO — vermelho pimenta + grafismos baianos
+   ========================================================= */
+
+.topo {
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+    text-align: center;
+    color: var(--papel);
+    background:
+        repeating-linear-gradient(
+            135deg,
+            rgba(255, 249, 239, .045) 0 2px,
+            transparent 2px 38px
+        ),
+        var(--pimenta);
+}
+
+/* Arco solar amarelo, inspirado nas formas coloniais */
+.topo::before {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    width: 360px;
+    height: 360px;
+    top: -192px;
+    left: -188px;
+    border: 48px solid var(--dende);
+    border-radius: 50%;
+    box-shadow: 0 0 0 20px rgba(242, 230, 206, .14);
+    pointer-events: none;
+}
+
+/* Contraponto em azul Pelô e verde coentro */
+.topo::after {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    width: 410px;
+    height: 410px;
+    right: -230px;
+    bottom: -265px;
+    border: 62px solid var(--pelo);
+    border-radius: 50%;
+    box-shadow: 0 0 0 22px var(--coentro);
+    pointer-events: none;
+}
+
+.topo-conteudo {
+    position: relative;
+    z-index: 1;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 100px 24px 96px;
+}
+
+.assinatura {
+    display: inline-flex;
+    align-items: center;
+    gap: 15px;
+    color: var(--dende);
+    font-family: var(--titulo);
+    font-style: italic;
+    font-size: clamp(1.4rem, 2.8vw, 1.8rem);
+    font-weight: 600;
+    letter-spacing: .02em;
+}
+
+.assinatura::before,
+.assinatura::after {
+    content: "";
+    width: 31px;
+    height: 2px;
+    background: currentColor;
+}
+
+.topo h1 {
+    margin: 8px 0 15px;
+    font-family: var(--titulo);
+    font-size: clamp(4.25rem, 10vw, 7.8rem);
+    font-weight: 700;
+    line-height: .96;
+    letter-spacing: -.055em;
+    text-wrap: balance;
+}
+
+.topo h1::after {
+    content: ".";
+    color: var(--dende);
+}
+
+.lema {
+    max-width: 38ch;
+    margin: 0 auto;
+    color: var(--papel);
+    font-size: clamp(.94rem, 1.7vw, 1.06rem);
+    line-height: 1.7;
+    letter-spacing: .01em;
+}
+
+/* Faixa geométrica, como um friso de azulejos */
+.faixa {
+    height: 20px;
+    background:
+        repeating-linear-gradient(
+            90deg,
+            var(--dende) 0 30px,
+            var(--pelo) 30px 60px,
+            var(--palha) 60px 90px,
+            var(--coentro) 90px 120px,
+            var(--pimenta) 120px 150px
+        );
+    border-top: 3px solid var(--papel);
+    border-bottom: 3px solid var(--papel);
+}
+
+/* =========================================================
+   CARDÁPIO — fundo palha natural + título editorial
+   ========================================================= */
+
+.cardapio {
+    max-width: 1120px;
+    margin: 0 auto;
+    padding: 88px 24px 102px;
+}
+
+.cardapio-titulo {
+    max-width: 650px;
+    margin: 0 auto 62px;
+    text-align: center;
+}
+
+.cardapio-titulo::before {
+    content: "✳";
+    display: block;
+    margin-bottom: 4px;
+    color: var(--coentro);
+    font-size: 2.2rem;
+    line-height: 1;
+}
+
+.cardapio-titulo h2 {
+    font-family: var(--titulo);
+    font-weight: 700;
+    font-size: clamp(3.1rem, 6vw, 4.6rem);
+    line-height: 1.1;
+    letter-spacing: -.045em;
+    color: var(--pimenta);
+}
+
+.cardapio-titulo h2::after {
+    content: "";
+    display: block;
+    width: 112px;
+    height: 5px;
+    margin: 14px auto 22px;
+    border-radius: 20px;
+    background: linear-gradient(
+        90deg,
+        var(--dende) 0 33.33%,
+        var(--pelo) 33.33% 66.66%,
+        var(--coentro) 66.66% 100%
+    );
+}
+
+.cardapio-titulo p {
+    color: var(--suave);
+    font-size: .99rem;
+    line-height: 1.75;
+}
+
+.lista {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 38px 34px;
+}
+
+/* =========================================================
+   ITENS — cartões com ritmo de cor e fotografia destacada
+   ========================================================= */
+
+.item {
+    --acento: var(--pimenta);
+    position: relative;
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    padding: 12px 12px 24px;
+    background: var(--papel);
+    border: 1px solid rgba(105, 93, 80, .18);
+    border-bottom: 5px solid var(--acento);
+    border-radius: 16px;
+    box-shadow: 0 15px 32px rgba(83, 55, 27, .11);
+    transition: transform .25s ease, box-shadow .25s ease;
+}
+
+.item:nth-child(2) { --acento: var(--coentro); }
+.item:nth-child(3) { --acento: var(--pelo); }
+.item:nth-child(4) { --acento: var(--dende); }
+
+.item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 22px 40px rgba(83, 55, 27, .17);
+}
+
+/* Foto original mantida como fundo CSS */
+.foto {
+    position: relative;
+    aspect-ratio: 4 / 3;
+    overflow: hidden;
+    border-radius: 8px 8px 68px 8px;
+    background-color: var(--palha);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+/* Número da receita, sem acrescentar elementos ao HTML */
+.foto::before {
+    content: "01";
+    position: absolute;
+    z-index: 2;
+    top: 17px;
+    left: 17px;
+    display: grid;
+    place-items: center;
+    width: 44px;
+    height: 44px;
+    border: 2px solid var(--papel);
+    border-radius: 50%;
+    background: var(--acento);
+    color: var(--papel);
+    font-family: var(--titulo);
+    font-size: 1.35rem;
+    font-weight: 700;
+    line-height: 1;
+}
+
+.item:nth-child(2) .foto::before { content: "02"; }
+.item:nth-child(3) .foto::before { content: "03"; }
+.item:nth-child(4) .foto::before {
+    content: "04";
+    color: var(--texto);
+}
+
+/* Acabamento fotográfico discreto */
+.foto::after {
+    content: "";
+    position: absolute;
+    z-index: 1;
+    inset: 10px;
+    border: 1px solid rgba(255, 249, 239, .65);
+    border-radius: 4px 4px 60px 4px;
+    box-shadow: inset 0 -42px 48px -48px rgba(48, 40, 32, .5);
+    pointer-events: none;
+}
+
+/* Caminhos EXATOS das fotos utilizadas no outro projeto */
+.acaraje {
+    background-image: url("imagens/acaraje.jpg");
+}
+
+.moqueca {
+    background-image: url("imagens/moqueca.jpg");
+}
+
+.bobo {
+    background-image: url("imagens/bobo.jpg");
+}
+
+.cocada {
+    background-image: url("imagens/cocada.jpg");
+}
+
+.detalhes {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    padding: 22px 12px 2px;
+}
+
+.categoria {
+    display: inline-flex;
+    align-items: center;
+    gap: 9px;
+    margin-bottom: 8px;
+    color: var(--acento);
+    font-size: .71rem;
+    font-weight: 800;
+    line-height: 1.3;
+    letter-spacing: .13em;
+    text-transform: uppercase;
+}
+
+.categoria::before {
+    content: "";
+    flex: none;
+    width: 9px;
+    height: 9px;
+    border-radius: 50%;
+    background: currentColor;
+}
+
+.linha {
+    display: flex;
+    align-items: baseline;
+    gap: 10px;
+}
+
+.linha h3 {
+    font-family: var(--titulo);
+    font-size: clamp(1.95rem, 3vw, 2.45rem);
+    font-weight: 700;
+    line-height: 1.1;
+    letter-spacing: -.03em;
+    color: var(--texto);
+}
+
+.pontilhado {
+    flex: 1;
+    min-width: 8px;
+    border-bottom: 2px dotted var(--linha);
+    transform: translateY(-4px);
+}
+
+.preco {
+    flex: none;
+    padding: 5px 10px;
+    border-radius: 30px;
+    background: var(--palha);
+    color: var(--pimenta);
+    font-size: .92rem;
+    font-weight: 800;
+    white-space: nowrap;
+}
+
+.descricao {
+    margin-top: 12px;
+    max-width: 50ch;
+    color: var(--suave);
+    font-size: .94rem;
+    line-height: 1.7;
+}
+
+/* =========================================================
+   RODAPÉ — verde coentro, com acabamento multicolorido
+   ========================================================= */
+
+.rodape {
+    position: relative;
+    overflow: hidden;
+    padding: 58px 24px 62px;
+    text-align: center;
+    color: var(--palha);
+    font-size: .95rem;
+    background: var(--coentro);
+    border-top: 8px solid var(--dende);
+}
+
+.rodape::before,
+.rodape::after {
+    content: "";
+    position: absolute;
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    pointer-events: none;
+}
+
+.rodape::before {
+    left: -128px;
+    top: -112px;
+    border: 24px solid var(--pelo);
+}
+
+.rodape::after {
+    right: -138px;
+    bottom: -140px;
+    border: 32px solid var(--pimenta);
+}
+
+.rodape-nome {
+    margin-bottom: 6px;
+    font-family: var(--titulo);
+    font-size: clamp(2.2rem, 4vw, 3rem);
+    font-weight: 700;
+    line-height: 1;
+    color: var(--papel);
+}
+
+.rodape-nome::after {
+    content: ".";
+    color: var(--dende);
+}
+
+/* =========================================================
+   RESPONSIVIDADE
+   ========================================================= */
+
+@media (max-width: 900px) {
+    .lista {
+        gap: 25px;
+    }
+
+    .linha {
+        flex-wrap: wrap;
+        row-gap: 8px;
+    }
+
+    .pontilhado {
+        display: none;
+    }
+
+    .preco {
+        margin-left: auto;
+    }
+}
+
+@media (max-width: 760px) {
+    .topo-conteudo {
+        padding: 76px 20px 74px;
+    }
+
+    .topo::before {
+        width: 260px;
+        height: 260px;
+        top: -165px;
+        left: -170px;
+        border-width: 32px;
+    }
+
+    .topo::after {
+        width: 275px;
+        height: 275px;
+        right: -180px;
+        bottom: -200px;
+        border-width: 40px;
+    }
+
+    .cardapio {
+        padding: 62px 20px 76px;
+    }
+
+    .cardapio-titulo {
+        margin-bottom: 42px;
+    }
+
+    .lista {
+        grid-template-columns: 1fr;
+        max-width: 550px;
+        margin: 0 auto;
+        gap: 30px;
+    }
+
+    .linha {
+        flex-wrap: nowrap;
+    }
+
+    .pontilhado {
+        display: block;
+    }
+}
+
+@media (max-width: 420px) {
+    .topo h1 {
+        font-size: clamp(3.3rem, 15vw, 4.3rem);
+    }
+
+    .assinatura {
+        font-size: 1.25rem;
+    }
+
+    .assinatura::before,
+    .assinatura::after {
+        width: 22px;
+    }
+
+    .cardapio {
+        padding-right: 14px;
+        padding-left: 14px;
+    }
+
+    .item {
+        padding: 9px 9px 19px;
+    }
+
+    .detalhes {
+        padding-right: 8px;
+        padding-left: 8px;
+    }
+
+    .linha h3 {
+        font-size: 1.83rem;
+    }
+
+    .preco {
+        font-size: .83rem;
+        padding: 4px 8px;
+    }
+
+    .pontilhado {
+        display: none;
+    }
+
+    .preco {
+        margin-left: auto;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    .item { transition: none; }
+    .item:hover { transform: none; }
+}

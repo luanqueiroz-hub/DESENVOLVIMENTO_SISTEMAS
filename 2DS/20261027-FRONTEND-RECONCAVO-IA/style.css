@@ -2,6 +2,11 @@
 /* ==========================================================
    RECÔNCAVO — COZINHA BAIANA
    Identidade visual inspirada na Bahia
+   HTML + Fotografias gastronômicas
+   ========================================================== */
+
+/* ==========================================================
+   01 — VARIÁVEIS
    ========================================================== */
 
 :root {
@@ -26,7 +31,7 @@
 }
 
 /* ==========================================================
-   RESET
+   02 — RESET
    ========================================================== */
 
 *,
@@ -55,8 +60,12 @@ p {
     margin: 0;
 }
 
+img {
+    max-width: 100%;
+}
+
 /* ==========================================================
-   FAIXA CROMÁTICA
+   03 — FAIXA CROMÁTICA
    ========================================================== */
 
 .fita-cores {
@@ -73,7 +82,7 @@ p {
 }
 
 /* ==========================================================
-   CABEÇALHO
+   04 — CABEÇALHO
    ========================================================== */
 
 .topo {
@@ -88,7 +97,6 @@ p {
 
 .topo::before {
     content: "";
-
     position: absolute;
     inset: 0;
     z-index: -1;
@@ -200,7 +208,7 @@ p {
 }
 
 /* ==========================================================
-   GRAFISMOS BAIANOS
+   05 — GRAFISMOS BAIANOS
    ========================================================== */
 
 .grafismo {
@@ -274,7 +282,7 @@ p {
 }
 
 /* ==========================================================
-   ÁREA PRINCIPAL DO CARDÁPIO
+   06 — ÁREA PRINCIPAL DO CARDÁPIO
    ========================================================== */
 
 .cardapio {
@@ -363,7 +371,7 @@ p {
 }
 
 /* ==========================================================
-   GRID DE PRATOS
+   07 — GRID DE PRATOS
    ========================================================== */
 
 .lista {
@@ -373,7 +381,7 @@ p {
 }
 
 /* ==========================================================
-   CARTÕES
+   08 — CARTÕES DOS PRATOS
    ========================================================== */
 
 .item {
@@ -397,7 +405,7 @@ p {
         box-shadow .25s ease;
 }
 
-/* Cor individual dos pratos */
+/* Cores individuais */
 
 .item:nth-child(2) {
     --acento: var(--coentro);
@@ -411,7 +419,7 @@ p {
     --acento: var(--dende);
 }
 
-/* Animação */
+/* Interação */
 
 .item:hover {
     transform: translateY(-5px);
@@ -422,8 +430,10 @@ p {
 }
 
 /* ==========================================================
-   MOLDURA DAS FOTOGRAFIAS
+   09 — MOLDURAS E FOTOGRAFIAS
    ========================================================== */
+
+/* Moldura colorida externa */
 
 .imagem {
     position: relative;
@@ -436,99 +446,77 @@ p {
     border-radius: 260px 260px 13px 13px;
 }
 
-/* Fotografia em formato de arco */
+/* Imagens reais do HTML */
 
 .foto {
-    position: relative;
+    display: block;
+
+    width: 100%;
+    height: auto;
+
     aspect-ratio: 1.60 / 1;
-    overflow: hidden;
+
+    object-fit: cover;
+    object-position: center;
 
     border-radius: 250px 250px 9px 9px;
 
-    background-position: center;
-    background-size: cover;
-    background-repeat: no-repeat;
+    background-color: var(--palha);
+
+    transition: transform .45s ease;
 }
 
-/* Sobreposição fotográfica */
+/* Efeito de ampliação suave */
 
-.foto::after {
+.item:hover .foto {
+    transform: scale(1.025);
+}
+
+/* Sombra interna da fotografia */
+
+.imagem::after {
     content: "";
 
     position: absolute;
-    inset: 0;
+    inset: 8px;
+    z-index: 1;
+
+    border-radius: 250px 250px 9px 9px;
 
     background: linear-gradient(
         0deg,
-        rgba(23, 22, 17, .22),
+        rgba(23, 22, 17, .18),
         transparent 45%
     );
 
     pointer-events: none;
 }
 
-/* ==========================================================
-   IMAGENS DOS PRATOS
-   ========================================================== */
-
-/* Acarajé */
+/* Enquadramento individual */
 
 .acaraje {
-    background-image:
-        url("imagens/acaraje.jpg"),
-        radial-gradient(
-            circle at 35% 22%,
-            #FFD77D,
-            var(--dende) 38%,
-            var(--pimenta)
-        );
+    object-position: center center;
 }
-
-/* Moqueca baiana */
 
 .moqueca {
-    background-image:
-        url("imagens/moqueca.jpg"),
-        radial-gradient(
-            circle at 65% 24%,
-            #FBD47B,
-            var(--pimenta) 68%,
-            var(--coentro)
-        );
+    object-position: center center;
 }
-
-/* Bobó de camarão */
 
 .bobo {
-    background-image:
-        url("imagens/bobo.jpg"),
-        radial-gradient(
-            circle at 38% 22%,
-            #FFE6A5,
-            var(--dende) 48%,
-            var(--coentro)
-        );
+    object-position: center center;
 }
 
-/* Cocada */
-
 .cocada {
-    background-image:
-        url("imagens/cocada.jpg"),
-        radial-gradient(
-            circle at 65% 24%,
-            #FFF9EF,
-            #DCBC82 55%,
-            var(--pimenta)
-        );
+    object-position: center center;
 }
 
 /* ==========================================================
-   NUMERAÇÃO DOS PRATOS
+   10 — NUMERAÇÃO DOS PRATOS
    ========================================================== */
 
 .numero {
     position: absolute;
+    z-index: 2;
 
     bottom: 19px;
     left: 20px;
@@ -555,7 +543,7 @@ p {
 }
 
 /* ==========================================================
-   INFORMAÇÕES DOS PRATOS
+   11 — INFORMAÇÕES DOS PRATOS
    ========================================================== */
 
 .detalhes {
@@ -636,7 +624,7 @@ p {
 }
 
 /* ==========================================================
-   MANIFESTO BAIANO
+   12 — MANIFESTO BAIANO
    ========================================================== */
 
 .manifesto {
@@ -652,7 +640,7 @@ p {
     color: var(--palha);
 }
 
-/* Círculo decorativo amarelo */
+/* Elemento decorativo amarelo */
 
 .manifesto::before {
     content: "";
@@ -670,7 +658,7 @@ p {
     border-radius: 50%;
 }
 
-/* Círculo azul */
+/* Elemento decorativo azul */
 
 .manifesto::after {
     content: "";
@@ -732,7 +720,7 @@ p {
 }
 
 /* ==========================================================
-   RODAPÉ
+   13 — RODAPÉ
    ========================================================== */
 
 .rodape {
@@ -799,7 +787,7 @@ p {
 }
 
 /* ==========================================================
-   RESPONSIVIDADE — TABLETS
+   14 — RESPONSIVIDADE: TABLETS
    ========================================================== */
 
 @media (max-width: 900px) {
@@ -842,7 +830,7 @@ p {
 }
 
 /* ==========================================================
-   RESPONSIVIDADE — CELULARES
+   15 — RESPONSIVIDADE: CELULARES
    ========================================================== */
 
 @media (max-width: 700px) {
@@ -922,7 +910,7 @@ p {
 }
 
 /* ==========================================================
-   RESPONSIVIDADE — TELAS MUITO PEQUENAS
+   16 — RESPONSIVIDADE: TELAS PEQUENAS
    ========================================================== */
 
 @media (max-width: 390px) {
@@ -967,7 +955,7 @@ p {
 }
 
 /* ==========================================================
-   ACESSIBILIDADE — MOVIMENTO REDUZIDO
+   17 — ACESSIBILIDADE
    ========================================================== */
 
 @media (prefers-reduced-motion: reduce) {
@@ -976,11 +964,13 @@ p {
         scroll-behavior: auto;
     }
 
-    .item {
+    .item,
+    .foto {
         transition: none;
     }
 
-    .item:hover {
+    .item:hover,
+    .item:hover .foto {
         transform: none;
     }
 }

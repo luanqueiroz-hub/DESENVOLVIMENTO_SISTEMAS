@@ -1,20 +1,26 @@
+
 /* =========================================================
-   Recôncavo | Cozinha Baiana
-   Visual sofisticado: azul-profundo, dendê e tons de areia
+   RECÔNCAVO | COZINHA BAIANA
+   Identidade editorial com cores da Bahia
    ========================================================= */
 
 :root {
-    --azul:     #12263A;   /* azul profundo do mar */
-    --azul-2:   #1C3A55;
-    --dende:    #E27B2C;   /* laranja do dendê */
-    --ouro:     #D9A441;   /* dourado suave */
-    --fundo:    #FAF7F2;   /* branco quente */
-    --linha:    #E4DCCF;
-    --texto:    #2B2B2B;
-    --suave:    #6F6A62;
+    /* ALTERADO: paleta oficial da Bahia */
+    --azul: #127BC2;
+    --dende: #F2AF29;
+    --pimenta: #BF2604;
+    --coentro: #27733C;
+    --palha: #F2E6CE;
 
+    /* ALTERADO: neutros mais quentes */
+    --fundo: var(--palha);
+    --linha: #D6C5A8;
+    --texto: #302820;
+    --suave: #655B50;
+
+    /* MANTIDO: fontes originais */
     --titulo: "Cormorant Garamond", Georgia, serif;
-    --corpo:  "Inter", "Segoe UI", sans-serif;
+    --corpo: "Inter", "Segoe UI", sans-serif;
 }
 
 * {
@@ -34,13 +40,21 @@ body {
 /* ---------------------------------------------------------
    TOPO
    --------------------------------------------------------- */
+
 .topo {
     position: relative;
     text-align: center;
     color: #fff;
+
+    /* ALTERADO: Azul Pelô e iluminação Dendê */
     background:
-        radial-gradient(ellipse at 50% 0%, rgba(226, 123, 44, .28), transparent 60%),
-        linear-gradient(180deg, var(--azul) 0%, var(--azul-2) 100%);
+        radial-gradient(ellipse at 50% 0%,
+            rgba(242, 175, 41, .28),
+            transparent 60%),
+        var(--azul);
+
+    /* ALTERADO: detalhe Vermelho Pimenta */
+    border-top: 6px solid var(--pimenta);
 }
 
 .topo-conteudo {
@@ -53,7 +67,7 @@ body {
     font-family: var(--titulo);
     font-style: italic;
     font-size: 1.35rem;
-    color: var(--ouro);
+    color: var(--dende);
 }
 
 .topo h1 {
@@ -62,7 +76,9 @@ body {
     font-weight: 600;
     font-size: clamp(3.4rem, 12vw, 6rem);
     line-height: 1;
-    letter-spacing: .02em;
+
+    /* ALTERADO: espaçamento editorial */
+    letter-spacing: -.035em;
 }
 
 .lema {
@@ -70,23 +86,24 @@ body {
     margin: 0 auto;
     font-size: 1.02rem;
     font-weight: 400;
-    color: rgba(255, 255, 255, .78);
+    color: rgba(255, 255, 255, .88);
 }
 
-/* faixa geométrica inspirada em azulejos */
+/* ALTERADO: faixa de azulejos com a nova paleta */
 .faixa {
     height: 14px;
     background:
         linear-gradient(135deg, var(--dende) 25%, transparent 25%) -7px 0 / 14px 14px,
-        linear-gradient(225deg, var(--dende) 25%, transparent 25%) -7px 0 / 14px 14px,
-        linear-gradient(315deg, var(--ouro) 25%, transparent 25%) 0 0 / 14px 14px,
-        linear-gradient(45deg, var(--ouro) 25%, transparent 25%) 0 0 / 14px 14px,
+        linear-gradient(225deg, var(--pimenta) 25%, transparent 25%) -7px 0 / 14px 14px,
+        linear-gradient(315deg, var(--coentro) 25%, transparent 25%) 0 0 / 14px 14px,
+        linear-gradient(45deg, var(--palha) 25%, transparent 25%) 0 0 / 14px 14px,
         var(--azul);
 }
 
 /* ---------------------------------------------------------
    CARDÁPIO
    --------------------------------------------------------- */
+
 .cardapio {
     max-width: 1040px;
     margin: 0 auto;
@@ -103,7 +120,9 @@ body {
     font-family: var(--titulo);
     font-weight: 600;
     font-size: clamp(2.2rem, 6vw, 3rem);
-    color: var(--azul);
+
+    /* ALTERADO: título Vermelho Pimenta */
+    color: var(--pimenta);
 }
 
 .cardapio-titulo h2::after {
@@ -121,63 +140,68 @@ body {
 
 .lista {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 56px 48px;
 }
 
 /* ---------------------------------------------------------
-   ITEM
+   ITEM E FOTOGRAFIA
    --------------------------------------------------------- */
+
 .foto {
     position: relative;
     aspect-ratio: 4 / 3;
-    border-radius: 4px;
     overflow: hidden;
     background-size: cover;
     background-position: center;
-    box-shadow: 0 18px 40px -20px rgba(18, 38, 58, .55);
+
+    /* ALTERADO: cantos e sombra mais suaves */
+    border-radius: 8px;
+    box-shadow: 0 18px 35px -20px rgba(48, 40, 32, .4);
 }
 
-/* Moldura fina interna: dá acabamento tanto com foto quanto sem */
 .foto::after {
     content: "";
     position: absolute;
     inset: 10px;
-    border: 1px solid rgba(255, 255, 255, .45);
-    border-radius: 2px;
+    border: 1px solid rgba(255, 255, 255, .5);
+    border-radius: 4px;
     pointer-events: none;
 }
 
-/* Fundo de cada prato.
-   Para usar uma foto real, coloque o arquivo na pasta "imagens" e ela
-   aparece automaticamente. Sem a foto, fica o degradê. */
+/* ---------------------------------------------------------
+   IMAGENS — CAMINHOS DOS ARQUIVOS
+   --------------------------------------------------------- */
+
+/* ALTERADO: fotos vinculadas pelos nomes aprovados */
+
 .acaraje {
-    background:
-        url("imagens/acaraje.jpg") center / cover,
-        radial-gradient(ellipse at 30% 25%, #F2A64A 0%, transparent 55%),
-        linear-gradient(135deg, #B5470F 0%, #6E2A0A 100%);
+    background-image:
+        url("imagens/acaraje.jpg"),
+        linear-gradient(135deg, var(--dende), var(--pimenta));
 }
 
 .moqueca {
-    background:
-        url("imagens/moqueca.jpg") center / cover,
-        radial-gradient(ellipse at 70% 30%, #F4B860 0%, transparent 55%),
-        linear-gradient(135deg, #C9631A 0%, #7A3510 100%);
+    background-image:
+        url("imagens/moqueca.jpg"),
+        linear-gradient(135deg, var(--pimenta), var(--dende));
 }
 
 .bobo {
-    background:
-        url("imagens/bobo.jpg") center / cover,
-        radial-gradient(ellipse at 30% 30%, #FFD98A 0%, transparent 55%),
-        linear-gradient(135deg, #D69A2D 0%, #8C5A12 100%);
+    background-image:
+        url("imagens/bobo.jpg"),
+        linear-gradient(135deg, var(--dende), var(--coentro));
 }
 
 .cocada {
-    background:
-        url("imagens/cocada.jpg") center / cover,
-        radial-gradient(ellipse at 70% 25%, #FFF3D9 0%, transparent 55%),
-        linear-gradient(135deg, #D8B079 0%, #9A6E3A 100%);
+    background-image:
+        url("imagens/cocada.jpg"),
+        linear-gradient(135deg, var(--palha), var(--dende));
 }
+
+/* ---------------------------------------------------------
+   DETALHES DOS PRATOS
+   --------------------------------------------------------- */
 
 .detalhes {
     padding-top: 22px;
@@ -188,7 +212,9 @@ body {
     font-family: var(--titulo);
     font-style: italic;
     font-size: 1.1rem;
-    color: var(--dende);
+
+    /* ALTERADO: Verde Coentro */
+    color: var(--coentro);
 }
 
 .linha {
@@ -202,7 +228,9 @@ body {
     font-weight: 700;
     font-size: 1.75rem;
     line-height: 1.2;
-    color: var(--azul);
+
+    /* ALTERADO: tom escuro para melhor leitura */
+    color: var(--texto);
 }
 
 .pontilhado {
@@ -215,8 +243,10 @@ body {
 .preco {
     font-weight: 600;
     font-size: 1.05rem;
-    color: var(--azul);
     white-space: nowrap;
+
+    /* ALTERADO: destaque Vermelho Pimenta */
+    color: var(--pimenta);
 }
 
 .descricao {
@@ -229,12 +259,15 @@ body {
 /* ---------------------------------------------------------
    RODAPÉ
    --------------------------------------------------------- */
+
 .rodape {
     padding: 48px 24px;
     text-align: center;
-    color: rgba(255, 255, 255, .72);
     font-size: .95rem;
-    background: var(--azul);
+
+    /* ALTERADO: Verde Coentro e detalhe Dendê */
+    color: var(--palha);
+    background: var(--coentro);
     border-top: 4px solid var(--dende);
 }
 
@@ -249,6 +282,7 @@ body {
 /* ---------------------------------------------------------
    TELAS PEQUENAS
    --------------------------------------------------------- */
+
 @media (max-width: 760px) {
     .topo-conteudo {
         padding: 72px 20px 64px;
