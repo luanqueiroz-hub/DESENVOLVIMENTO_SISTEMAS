@@ -282,6 +282,38 @@ body {
     cursor: pointer;
 }
 
+.btn-carrinho {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 16px;
+    border: none;
+    border-radius: 4px;
+    color: var(--azul);
+    font-family: var(--corpo);
+    font-weight: 600;
+    background: var(--ouro);
+    cursor: pointer;
+}
+
+#selo {
+    min-width: 22px;
+    padding: 1px 7px;
+    border-radius: 999px;
+    color: #fff;
+    font-size: .8rem;
+    text-align: center;
+    background: var(--azul);
+}
+
+#selo.salta {
+    animation: salta .3s ease;
+}
+
+@keyframes salta {
+    50% { transform: scale(1.35); }
+}
+
 .filtros {
     display: flex;
     flex-wrap: wrap;
@@ -327,28 +359,183 @@ body {
     display: none;
 }
 
-.resumo {
-    display: flex;
-    flex-wrap: wrap; /* Permite que o botão quebre para a linha de baixo */
-    gap: 15px;
-    align-items: center;
+/* ---------------------------------------------------------
+   CARRINHO (painel lateral)
+   --------------------------------------------------------- */
+.fundo-carrinho {
+    position: fixed;
+    inset: 0;
+    z-index: 90;
+    background: rgba(18, 38, 58, .55);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity .25s ease;
 }
 
-.btn-carrinho {
-    width: 100%; /* Faz o botão ocupar toda a largura abaixo dos outros itens */
-    margin-top: 10px;
-    padding: 12px;
-    background-color: var(--azul);
-    color: white;
+.fundo-carrinho.aberto {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.carrinho {
+    position: fixed;
+    top: 0;
+    right: 0;
+    z-index: 100;
+    display: flex;
+    flex-direction: column;
+    width: min(420px, 100%);
+    height: 100%;
+    background: #fff;
+    box-shadow: -20px 0 40px -20px rgba(18, 38, 58, .6);
+    transform: translateX(100%);
+    transition: transform .3s ease;
+}
+
+.carrinho.aberto {
+    transform: translateX(0);
+}
+
+.carrinho-topo {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 22px 24px;
+    color: #fff;
+    background: var(--azul);
+    border-bottom: 4px solid var(--ouro);
+}
+
+.carrinho-topo h2 {
+    font-family: var(--titulo);
+    font-weight: 600;
+    font-size: 1.8rem;
+}
+
+.fechar {
+    border: none;
+    color: #fff;
+    font-size: 2rem;
+    line-height: 1;
+    background: transparent;
+    cursor: pointer;
+}
+
+.carrinho-lista {
+    flex: 1;
+    padding: 8px 24px;
+    overflow-y: auto;
+    list-style: none;
+}
+
+.carrinho-vazio {
+    padding: 48px 0;
+    text-align: center;
+    color: var(--azul-2);
+}
+
+.carrinho-item {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 4px 12px;
+    padding: 16px 0;
+    border-bottom: 1px solid var(--linha);
+}
+
+.carrinho-item h4 {
+    font-family: var(--titulo);
+    font-weight: 700;
+    font-size: 1.3rem;
+    color: var(--azul);
+}
+
+.carrinho-item .sub {
+    font-weight: 600;
+    color: var(--azul);
+}
+
+.carrinho-item .unit {
+    font-size: .85rem;
+    color: var(--azul-2);
+}
+
+.qtd {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 6px;
+}
+
+.qtd button {
+    width: 30px;
+    height: 30px;
+    border: 1px solid var(--azul);
+    border-radius: 50%;
+    color: var(--azul);
+    font-size: 1.1rem;
+    background: transparent;
+    cursor: pointer;
+}
+
+.qtd button:hover {
+    color: #fff;
+    background: var(--azul);
+}
+
+.remover {
+    align-self: end;
+    justify-self: end;
+    border: none;
+    color: #a33;
+    font-size: .85rem;
+    text-decoration: underline;
+    background: transparent;
+    cursor: pointer;
+}
+
+.carrinho-rodape {
+    padding: 20px 24px 28px;
+    background: #faf6ee;
+    border-top: 1px solid var(--linha);
+}
+
+.carrinho-total {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 16px;
+    color: var(--azul);
+}
+
+.carrinho-total strong {
+    font-family: var(--titulo);
+    font-size: 1.9rem;
+}
+
+.btn-finalizar {
+    width: 100%;
+    padding: 14px;
     border: none;
     border-radius: 4px;
+    color: #fff;
     font-family: var(--corpo);
+    font-size: 1rem;
     font-weight: 600;
+    background: var(--azul);
     cursor: pointer;
-    transition: background-color 0.2s;
 }
 
-.btn-carrinho:hover {
-    background-color: var(--azul-2);
+.btn-finalizar:disabled {
+    opacity: .4;
+    cursor: not-allowed;
 }
 
+button:focus-visible {
+    outline: 3px solid var(--ouro);
+    outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .carrinho, .fundo-carrinho { transition: none; }
+    #selo.salta { animation: none; }
+}

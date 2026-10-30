@@ -3,18 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <title>Recôncavo | Cozinha Baiana</title>
-
     <!-- Fontes do Google -->
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
-
     <!-- Arquivo CSS -->
     <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
-
     <header class="topo">
         <div class="topo-conteudo">
             <p class="assinatura">Cozinha baiana</p>
@@ -30,15 +25,12 @@
             <h2>Cardápio</h2>
             <p>Receitas tradicionais, preparadas na hora com ingredientes frescos.</p>
         </div>
-
-
         <div class="resumo">
             <span id="itens">0 itens</span>
             <span id="total">Total: R$ 0,00</span>
             <button id="limpar">Limpar pedido</button>
-            <button id="ver-carrinho" class="btn-carrinho">Ver Carrinho</button>
+            <button id="abrir-carrinho" class="btn-carrinho">Ver carrinho <span id="selo">0</span></button>
         </div>
-
         <div class="filtros">
             <button class="filtro ativo" data-categoria="Todos">Todos</button>
             <button class="filtro" data-categoria="Entrada">Entradas</button>
@@ -111,15 +103,30 @@
                     <button class="btn-pedir">Pedir</button>
                 </div>
             </article>
-
+            
         </div>
-
     </main>
-
     <footer class="rodape">
         <p class="rodape-nome">Recôncavo</p>
         <p>Cozinha baiana feita com tempero de casa</p>
     </footer>
+
+    <!-- Carrinho (painel lateral) -->
+    <div id="fundo-carrinho" class="fundo-carrinho"></div>
+    <aside id="carrinho" class="carrinho" aria-label="Carrinho de compras" aria-hidden="true">
+        <div class="carrinho-topo">
+            <h2>Seu pedido</h2>
+            <button id="fechar-carrinho" class="fechar" aria-label="Fechar carrinho">&times;</button>
+        </div>
+        <ul id="lista-carrinho" class="carrinho-lista"></ul>
+        <div class="carrinho-rodape">
+            <div class="carrinho-total">
+                <span>Total</span>
+                <strong id="total-carrinho">R$ 0,00</strong>
+            </div>
+            <button id="finalizar" class="btn-finalizar">Finalizar pedido</button>
+        </div>
+    </aside>
 
     <script src="script.js"></script>
 

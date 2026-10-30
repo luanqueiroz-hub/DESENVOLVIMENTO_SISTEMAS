@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recôncavo | Cozinha Baiana</title>
+
+    <!-- Fontes do Google -->
+    <link href="https://googleapis.com" rel="stylesheet">
+
+    <!-- Arquivo CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <header class="topo">
+        <!-- Vídeo puro e cristalino -->
+        <video autoplay muted loop playsinline class="video-fundo">
+            <source src="video/fundo.mp4" type="video/mp4">
+        </video>
+
+        <div class="topo-conteudo">
+            <p class="assinatura">Alta Cozinha Contemporânea</p>
+            <h1>Recôncavo</h1>
+            <span class="divisor-marca"></span>
+            <p class="lema">Sabores do dendê, do coco e do mar da Bahia</p>
+        </div>
+    </header>
+
+    <main class="cardapio">
+
+        <div class="cardapio-titulo">
+            <h2>O Cardápio</h2>
+            <p>Uma imersão na cultura baiana através de ingredientes frescos e técnicas refinadas.</p>
+        </div>
+
+        <div class="resumo">
+            <div class="resumo-dados">
+                <span id="itens">0 seleções</span>
+                <span class="ponto-separador">•</span>
+                <span id="total">R$ 0,00</span>
+            </div>
+            <button id="limpar">Limpar experiência</button>
+        </div>
+
+        <div class="filtros">
+            <button class="filtro ativo" data-categoria="Todos">Todos</button>
+            <button class="filtro" data-categoria="Entrada">Entradas</button>
+            <button class="filtro" data-categoria="Prato principal">Principais</button>
+            <button class="filtro" data-categoria="Sobremesa">Sobremesas</button>
+        </div>
+
+        <div class="lista">
+
+            <article class="item" data-preco="14.00">
+                <div class="container-foto">
+                    <img src="img/acaraje.jpg" alt="Acarajé gourmet" class="foto-img">
+                </div>
+                <div class="detalhes">
+                    <p class="categoria">Entrada</p>
+                    <div class="linha">
+                        <h3>Acarajé</h3>
+                        <span class="preco">R$ 14</span>
+                    </div>
+                    <p class="descricao">Bolinho artesanal de feijão-fradinho frito no azeite de dendê legítimo, vatapá cremoso, caruru, camarão seco defumado e vinagrete de murchados.</p>
+                    <button class="btn-pedir">Adicionar ao pedido</button>
+                </div>
+            </article>
+
+            <article class="item" data-preco="48.00">
+                <div class="container-foto">
+                    <img src="img/moqueca.jpg" alt="Moqueca baiana refinada" class="foto-img">
+                </div>
+                <div class="detalhes">
+                    <p class="categoria">Prato principal</p>
+                    <div class="linha">
+                        <h3>Moqueca Baiana</h3>
+                        <span class="preco">R$ 48</span>
+                    </div>
+                    <p class="descricao">Lombo de peixe fresco da estação cozido harmoniosamente no leite de coco artesanal e toque de dendê, pimentões confitados e coentro fresco. Acompanha arroz basmati perfumado e pirão aveludado.</p>
+                    <button class="btn-pedir">Adicionar ao pedido</button>
+                </div>
+            </article>
+
+            <article class="item" data-preco="42.00">
+                <div class="container-foto">
+                    <img src="img/bobo.jpg" alt="Bobó de camarão premium" class="foto-img">
+                </div>
+                <div class="detalhes">
+                    <p class="categoria">Prato principal</p>
+                    <div class="linha">
+                        <h3>Bobó de Camarão</h3>
+                        <span class="preco">R$ 42</span>
+                    </div>
+                    <p class="descricao">Creme de aipim infusionado em leite de coco e azeite de dendê doce com camarões salteados no ponto perfeito. Acompanha arroz branco soltinho.</p>
+                    <button class="btn-pedir">Adicionar ao pedido</button>
+                </div>
+            </article>
+
+            <article class="item" data-preco="8.00">
+                <div class="container-foto">
+                    <img src="img/cocada.jpg" alt="Cocada cremosa contemporânea" class="foto-img">
+                </div>
+                <div class="detalhes">
+                    <p class="categoria">Sobremesa</p>
+                    <div class="linha">
+                        <h3>Cocada Cremosa</h3>
+                        <span class="preco">R$ 8</span>
+                    </div>
+                    <p class="descricao">Fitas de coco fresco em calda translúcida e dourada, apurada lentamente no tacho de cobre até atingir textura sedosa.</p>
+                    <button class="btn-pedir">Adicionar ao pedido</button>
+                </div>
+            </article>
+
+        </div>
+
+    </main>
+
+    <footer class="rodape">
+        <p class="rodape-nome">Recôncavo</p>
+        <p class="rodape-sub">Cozinha de Origem • Salvador, Bahia</p>
+    </footer>
+
+    <script src="script.js"></script>
+
+</body>
+</html>
