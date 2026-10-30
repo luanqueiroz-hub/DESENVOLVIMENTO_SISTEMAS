@@ -21,6 +21,6 @@ export default function App() {
 const styles = StyleSheet.create({
   container: { flex: 1, justifyContent: 'center', alignItems: 'center', backgroundColor: '#f0f0f0' },
   cartao: { backgroundColor: '#ffffff', borderRadius: 12, padding: 20, width: '85%' },
-  titulo: { fontSize: 20, fontWeight: 'bold', color: '#db1717', textAlign: 'center', marginBottom: 12 },
-  texto: { fontWeight: 'bold', color: '#e40808', textAlign: 'center', lineHeight: 20 }
+  titulo: { fontSize: 20, fontWeight: 'bold', color: 'rgb(2, 28, 143)', textAlign: 'center', marginBottom: 12 },
+  texto: { fontWeight: 'bold', color: '#000270', textAlign: 'center', lineHeight: 20 }
 });
